@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[patrickliu's blog]]></title>
+  <subtitle><![CDATA[Hi, I'm 0827]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://git-patrickliu.github.io/"/>
+  <updated>2015-09-07T11:23:56.000Z</updated>
+  <id>http://git-patrickliu.github.io/</id>
+  
+  <author>
+    <name><![CDATA[patrickliu]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[OneAPM，just the one.]]></title>
+    <link href="http://git-patrickliu.github.io/2015/09/04/access-in-oneapm/"/>
+    <id>http://git-patrickliu.github.io/2015/09/04/access-in-oneapm/</id>
+    <published>2015-09-04T14:07:51.000Z</published>
+    <updated>2015-09-07T11:23:56.000Z</updated>
+    <content type="html"><![CDATA[<p>先用一组数据来开始整篇文章吧。</p>
+<ol>
+<li>如果亚马逊页面加载每慢100ms，将影响他们1%的收入。</li>
+<li>如果谷歌页面加载慢500ms，流量将锐减20%。来自 <a href="http://blog.gigaspaces.com/amazon-found-every-100ms-of-latency-cost-them-1-in-sales/" target="_blank" rel="external">gigaspaces</a></li>
+</ol>
+<p>这是一组08年的数据，而现在，页面延迟对公司来说影响会更大(虽然网络变快了很多，但是大家使用网络的习惯变化了，现在大家经常是用手机来接入网络，而移动网络是很不稳定的)。<br>页面加载速度，是如此的重要，所以我们就需要对前端页面加载速度进行不断的优化。这第一步自然就是获取用户的真实加载的情况，要不然只能闭门造车，纸上谈兵。</p>
+<p>其实，我们在这第一步就受阻了。因为我们发现市面上并没有一款产品足够好用，能够让我们即时检测用户的页面加载情况。我们知道一些大公司是有相关的监控工具，但是没有对外开放。而如果公司内部自己开发的话，将是一个非常大的工程，并且统计出的结果未必精确，之后的维护也是很麻烦的一件事情。还好我们一直都有关注前端的一些技术会议。在报名<a href="velocity.oreilly.com.cn/2015/index.php">Velocity</a>的时候，我们认识了<a href="http://www.oneapm.com" target="_blank" rel="external">OneAPM</a>。</p>
+<p>大家可以看看Velocity的赞助商们（不得不吐槽一下，这届Velocity，有一半都是赞助商们的广告），基本都是围绕着APM这个话题。我也趁机将他们中的绝大多数都试用了一下，最后选中了OneAPM作为我们暂时的前端加载速度监测工具。</p>
+<p>OneAPM<a href="http://www.oneapm.com/bi/feature.html" target="_blank" rel="external">前端性能监控</a>都有一些什么特色，让我们最终选择了她呢？我总结了一下大概有以下几点：</p>
+<h3 id="OneAPM_提供了两种前端监测代码注入方式。">OneAPM 提供了两种前端监测代码注入方式。</h3><p>一种是用户手动在html当中插入script，一种是通过用户部署后台agent自动插入script。</p>
+<p>我想说，大家都习惯了用google分析，百度分析，腾讯分析等等，对在页面当中插入一段受信任方的JS并没有多大的反感。所以我开始试用就是采用了第一种方式，方便快捷，并且对代码影响是最小的。有某些APM工具，只支持上面的第二种，门槛略高，要想用一下还得改后台代码，还是挺麻烦了。</p>
+<h3 id="OneAPM_提供了非常丰富的展现维度">OneAPM 提供了非常丰富的展现维度</h3><p>大家可以去<a href="http://www.oneapm.com" target="_blank" rel="external">OneAPM</a>上看一下，展现的<code>维度</code>是相当的丰富。</p>
+<p><img src="http://7xkybo.com1.z0.glb.clouddn.com/oneapm1.png" alt="OneAPM sidebar "><br>OneAPM并不只是提供简单的浏览器performance的上报，而是对其进行了一定的归纳，将其归为，白屏时间、首屏时间、H5启动时间和网页就绪时间（这样挺好，但是我觉得如果也能同时展示出原始的performance信息，对专业调优的前端会更友好一些）。</p>
+<p>还支持<code>浏览器</code>, <code>运营商</code>, <code>地理</code> 三个围度的加载情况查看。提供了慢事务追踪，静态文件加载瀑布流。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/oneapm2.png" alt="总览"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/oneapm3.png" alt="瀑布流"></p>
+<p>其实上面2点，是我们最初想要的功能。能提供我们就已经很开心了。后面的几个额外功能更加让我们确信要使用OneAPM了。</p>
+<h3 id="Ajax耗时功能">Ajax耗时功能</h3><p>这是一个非常好用的功能。相信后台艰苦卓绝的将后台CGI响应减少了10ms，但是前端一不小心就多了100ms，甚至大几百ms。所以前端AJAX测速同样是非常重要的。我们可以在这查看到哪一些CGI的速度慢，可以进行专项优化。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/oneapm4.png" alt="Ajax耗时检测"></p>
+<h3 id="脚本错误功能">脚本错误功能</h3><p>这个功能不得不赞一下，因为他让我们发现了不少内嵌APP页面的错误。开发过mobile APP内嵌页的同学们都知道，移动端的调试非常麻烦，而移动端的错误就更加难以捕捉。有了这个功能，我们可以迅速知道我们线上页面的健康度（尤其是线上出现重大BUG，突发某一些错误时）。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/oneapm5.png" alt="脚本错误展示"></p>
+<h3 id="HTTPS!!!">HTTPS!!!</h3><p>其实这个最重要。。因为如果不支持HTTPS的话，我们就直接bye bye走人了。因为我们的页面对安全要求比较高，是全站HTTPS的。而OneAPM是HTTP和HTTPS都支持的。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/oneapm6.png" alt="认准双斜杠"></p>
+<h3 id="强大的技术支持">强大的技术支持</h3><p>我只是在试用阶段，北京的OneAPM同学就直接拉了一个群，非常热心地解决我的各种试用问题，和解答各种技术上的疑惑。企业产品和个人产品不一样，企业产品最重要的是要用得放心，舒心。对于我来说，OneAPM做到了。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/oneapm7.png" alt="技术支持"></p>
+<p>综上，有了详细的用户加载时间，我们才能进行下一步的专项优化。</p>
+<p>PS: 当然有要吐槽的：</p>
+<ol>
+<li>吞吐量的单位ppm，还是没有习惯，弄成PV是不是更好一些？</li>
+<li>页面展示的维度，取path是不够的，这样容易让开发，测试和线上的数据混在一起（这个据说已在开发了，赞一记）。</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>先用一组数据来开始整篇文章吧。</p>
+<ol>
+<li>如果亚马逊页面加载每慢100ms，将影响他们1%的收入。</li>
+<li>如果谷歌页面加载慢500ms，流量将锐减20%。来自 <a href="http://blog.gigaspaces.com/amazon-]]>
+    </summary>
+    
+      <category term="APM" scheme="http://git-patrickliu.github.io/tags/APM/"/>
+    
+      <category term="OneAPM" scheme="http://git-patrickliu.github.io/tags/OneAPM/"/>
+    
+      <category term="monitor" scheme="http://git-patrickliu.github.io/tags/monitor/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[接入多说评论]]></title>
+    <link href="http://git-patrickliu.github.io/2015/09/04/duoshuo/"/>
+    <id>http://git-patrickliu.github.io/2015/09/04/duoshuo/</id>
+    <published>2015-09-04T09:22:16.000Z</published>
+    <updated>2015-09-04T16:39:17.000Z</updated>
+    <content type="html"><![CDATA[<p>我这个blog是基于<a href="http://hexo.io" target="_blank" rel="external">hexo</a>构建的，是纯静态html的。所以评论就是一个问题，在网上搜了一下发现<a href="http://dev.duoshuo.com/" target="_blank" rel="external">多说</a>，可以实现评论的功能。<br>多说是通过在你的页面当中内嵌一个多说的JS来实现评论的功能。所以我们需要将多说的JS内嵌到我们的hexo创建的博客当中。</p>
+<h3 id="1-_多说添加网站">1. 多说添加网站</h3><p>当然，首先我们需要在多说添加一个网站，<a href="http://duoshuo.com/create-site/" target="_blank" rel="external">多说创建页面</a>，在此页面添加你自己的网站信息。</p>
+<h3 id="2-_拷贝通用代码">2. 拷贝通用代码</h3><p>然后进入对应的管理后台，选择 <code>工具</code> – <code>获取代码</code> – <code>通用代码</code>, 然后可以查看到多说需要你在你的页面中插入的代码。</p>
+<h3 id="3-_修改_config-yml">3. 修改_config.yml</h3><p>到hexo你的博客的根目录，在_config.yml里面新增一个变量，如duoshuo_shortname: your-short-name-in-duo-shuo。这个变量名是随便起的，但是要跟下一步对应起来。变量值，是你在第1步当中输入的多说域名。</p>
+<h3 id="4-_修改主题中评论代码">4. 修改主题中评论代码</h3><p>到hexo当中找到你选用的themes的文件夹，比如我用的是light的主题，则在themes/light/layout/_partial/comment.ejs, 其实不同的主题，对应的文件是不一样的，这一步就需要大家稍微去看一下里面的代码。比如我这边light主题comment.ejs里面其实已经有light主题内置的facebook或disqus评论组件，然并卵，这是一个不存在的网站。<br>原始代码是：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (page.comments)&#123; %&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">section</span> <span class="attribute">id</span>=<span class="value">"comment"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"title"</span>&gt;</span><span class="tag">&lt;<span class="title">%=</span> <span class="attribute">__</span>('<span class="attribute">comment</span>') %&gt;</span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="title">%</span> <span class="attribute">if</span> (<span class="attribute">theme.comment_provider</span> =<span class="value">=</span> "<span class="attribute">facebook</span>") &#123;</span><br><span class="line">      <span class="attribute">if</span> (<span class="attribute">theme.facebook</span>) &#123; %&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">%-</span> <span class="attribute">partial</span>('<span class="attribute">_partial</span>/<span class="attribute">facebook_comment</span>', &#123;<span class="attribute">fbConfig:</span> <span class="attribute">theme.facebook</span>&#125;) %&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">%</span> &#125; %&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">%</span> &#125; <span class="attribute">else</span> <span class="attribute">if</span>(<span class="attribute">config.disqus_shortname</span>) &#123; %&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"disqus_thread"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">noscript</span>&gt;</span>Please enable JavaScript to view the <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"//disqus.com/?ref_noscript"</span>&gt;</span>comments powered by Disqus.<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">noscript</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">%</span> &#125; %&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">%</span> &#125; %&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>在度娘搜示例的时候，里面出现的变量是post，如果二话不说，将代码直接替换，hexo编译的时候会出问题。如<a href="http://dev.duoshuo.com/threads/541d3b2b40b5abcd2e4df0e9" target="_blank" rel="external">多说官方</a>提供了这个示例。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (!index &amp;&amp; post.comments &amp;&amp; config.duoshuo_shortname)&#123; %&gt;</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="title">section</span> <span class="attribute">id</span>=<span class="value">"comments"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 多说评论框 start --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"ds-thread"</span> <span class="attribute">data-thread-key</span>=<span class="value">"&lt;%= post.layout %&gt;-&lt;%= post.slug %&gt;"</span> <span class="attribute">data-title</span>=<span class="value">"&lt;%= post.title %&gt;"</span> <span class="attribute">data-url</span>=<span class="value">"&lt;%= page.permalink %&gt;"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 多说评论框 end --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 多说公共JS代码 start (一个网页只需插入一次) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="keyword">var</span> duoshuoQuery = &#123;short_name:<span class="string">'&lt;%= config.duoshuo_shortname %&gt;'</span>&#125;;</span><br><span class="line">      (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> ds = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">        ds.type = <span class="string">'text/javascript'</span>;ds.async = <span class="literal">true</span>;</span><br><span class="line">        ds.src = (<span class="built_in">document</span>.location.protocol == <span class="string">'https:'</span> ? <span class="string">'https:'</span> : <span class="string">'http:'</span>) + <span class="string">'//static.duoshuo.com/embed.js'</span>;</span><br><span class="line">        ds.charset = <span class="string">'UTF-8'</span>;</span><br><span class="line">        (<span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>]</span><br><span class="line">         || <span class="built_in">document</span>.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>]).appendChild(ds);</span><br><span class="line">      &#125;)();</span><br><span class="line">      </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 多说公共JS代码 end --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">section</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">%</span> &#125; %&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>相信熟悉ejs模板语言的都清楚，如果调用comment.ejs的地方没有传入post参数，则在当前页面不能调用这个值。我们看一下发现在article.ejs当中有调用comment.ejs。最下面一行，<code>&lt;%- partial(&#39;comment&#39;) %&gt;</code>，在页面当中有传入item的值，并且我们简单看了一下item的一些属性值和post有点像，我们大胆地将最后一行改成<code>&lt;%- partial(&#39;comment&#39;, { post: item }) %&gt;</code>，然后运行一下<code>hexo g</code>，发现可行。这样就改好了。</p>
+<p>其实对于其他类型的themes其实也是一样的。看一下代码改改变量就ok了。<br>按照之上几步就可以在hexo博客当中插入多说评论。大家有问题欢迎评论。谢谢：)。</p>
+<h3 id="参考">参考</h3><ol>
+<li>更多的信息请查看 <a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">http://ibruce.info/2013/11/22/hexo-your-blog/</a></li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>我这个blog是基于<a href="http://hexo.io" target="_blank" rel="external">hexo</a>构建的，是纯静态html的。所以评论就是一个问题，在网上搜了一下发现<a href="http://dev.duoshuo.c]]>
+    </summary>
+    
+      <category term="多说" scheme="http://git-patrickliu.github.io/tags/%E5%A4%9A%E8%AF%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Velocity会议总结]]></title>
+    <link href="http://git-patrickliu.github.io/2015/08/19/Velocity%E5%A4%A7%E4%BC%9A%E6%80%BB%E7%BB%93/"/>
+    <id>http://git-patrickliu.github.io/2015/08/19/Velocity大会总结/</id>
+    <published>2015-08-19T11:52:16.000Z</published>
+    <updated>2015-09-04T10:10:59.000Z</updated>
+    <content type="html"><![CDATA[<p>关键词：https优化，前端加载优化，hybrid，APM(application performance monitor）。</p>
+<ol>
+<li><p>https优化。</p>
+<blockquote>
+<ul>
+<li>HttpDNS, 通过http方式向第三方的固定IP方式来获取指定域名的IP来进行DNS解析<a href="这种方式可以解释我们之前域名被加黑名单的问题，但是如果又新增加域名，得客户端随时修改，建议通过下发方式来实现新域名prefetch。">^httpDNS</a>（我们可以考虑在客户端新增HttpDNS）</li>
+<li>启用HSTS[^HSTS] （我们尚未全站启用https，所以这个不太好启动）</li>
+<li>启用OCSP Stapling<a href="浏览器在下载服务端的证书之后会向证书发行商验证证书的合法性。因为是向国外网站验证，所以速度慢并存在着失败的可能性。所以可用的做法是在服务器端预先向服务器进行验证，然后打包证书供浏览器下载，这样浏览器就不用再去验证证书的合法性。注意，有效期大概为1个月。详见[网址](https://blog.xjpvictor.info/2013/09/nginx-ocsp-stapling/)。">^OCSP</a>（可以采用，但需要查看兼容性以及要及时更新签名，以及注意证书链大小）</li>
+<li>复用session，减少握手次数</li>
+<li>精确设置TLS Record Size，size过小，overhead比重增大，size过大，单record的TCP分段过多</li>
+<li>TLS硬件加速</li>
+<li>SPDY/HTTP2.0，可以研究，但近期可能用不上。</li>
+<li>配置Forward secrecy cipher 支持False start[^falsestart]  （可以采用，省掉一个RTT时间）</li>
+<li>升级openssl版本到最新（我们的版本是openssl-1.0.2c）</li>
+<li>确认TLS压缩禁用（nginx 1.3.x以上版本都自动关闭，不关闭有漏洞，我们nginx是1.6.3）</li>
+<li>确认SNI支持 （已支持，多个证书部署在同一个IP上）</li>
+<li>使用 <strong>//</strong>，来引用静态资源文件，保证http能无缝迁到https环境（我们已经使用了，但是一个360的同僚说在某些地方的移动运营商会将<strong>//</strong> 篡改为 <strong>/</strong>。但是iPhone5s 上海中国移动未发现问题）。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0612.JPG" alt="enter image description here"></li>
+</ul>
+</blockquote>
+</li>
+<li><p>页面直出方法，对比？</p>
+<blockquote>
+<ul>
+<li>nginx + lua 页面直出（京东618采用）<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0571.JPG" alt="enter image description here"></li>
+<li>ATS （apache traffic server）页面直出（Yahoo采用）</li>
+<li>nodejs直出</li>
+</ul>
+</blockquote>
+</li>
+<li><p>前端加载优化</p>
+<blockquote>
+<ul>
+<li>ebay优化尝试：DSA（dynamic site accelerate）动态加速，加快页面加载，采用WebP格式优化图片大小（理论能优化到以前60%大小）。</li>
+<li>composition layer，z-index相同导致的渲染变慢（阿里分享），可查看 <a href="http://www.w3ctech.com/topic/1463" target="_blank" rel="external">css conf</a> 360的分享有讨论此问题。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>hybrid</p>
+<blockquote>
+<ul>
+<li>百度 Blend UI系统架构。通过封装统一JS UI API，如果是在百度app内部的webview，则调用的是原生的UI样式，否则调用的是JS统一的UI样式<a href="百度blendUI详细如下：">^blendUI</a></li>
+<li>Yahoo 采用reactjs + <a href="https://facebook.github.io/flux/" target="_blank" rel="external">flux</a></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ol>
+<li>APM<blockquote>
+<ul>
+<li>今年的趋势是APM（application performance monitor），赞助商基本都是APM厂商（云智慧，性能魔方，性能极客，OneAPM，野狗等）。</li>
+<li>我们正在试用<a href="https://tpm.oneapm.com/tpm/account/717715137/browser/1326753/overview/#/" target="_blank" rel="external">OneAPM</a>进行页面加载测试。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h4 id="总结：">总结：</h4><h5 id="一些方法论：">一些方法论：</h5><blockquote>
+<ul>
+<li>保持simplicity<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0560.JPG" alt="enter image description here"></li>
+<li>build high performance team<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0585.JPG" alt="enter image description here"></li>
+<li>优化问题方法论<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0616.JPG" alt="enter image description here"></li>
+</ul>
+</blockquote>
+<h5 id="我们暂时能够跟进的：">我们暂时能够跟进的：</h5><blockquote>
+<ul>
+<li>客户端采用http协议的httpDNS来加速DNS查询，能有效防止之前DNS解析问题。</li>
+<li>https优化全部跟进，已将dev全部改成TLSv1.2，排期全部改造并上线。</li>
+<li>CDN动态加速（DSA）咨询，并开启。</li>
+<li>hybrid现阶段讨论结果是采用PhoneGap。</li>
+<li>试用OneAPM跟进数据，然后基于数据进行优化。</li>
+</ul>
+</blockquote>
+<h5 id="一些有用的网站分享：">一些有用的网站分享：</h5><ol>
+<li><p>关于html标准的网站。</p>
+<blockquote>
+<ul>
+<li><a href="http://specifiction.wicg.io" target="_blank" rel="external">specifiction</a>|<a href="http://discourse.wicg.io" target="_blank" rel="external">Discourse</a> ask question</li>
+<li>Contribute tests on <a href="http://testthewebforward.org" target="_blank" rel="external">testthewebforward</a></li>
+<li><a href="http://www.w3.org/community/wicg" target="_blank" rel="external">W3 Community</a></li>
+<li><a href="http://extensiblewebmanifesto.org" target="_blank" rel="external">extensiblewebmanifesto</a></li>
+<li><a href="http://webcomponents.org" target="_blank" rel="external">webcomponents</a></li>
+</ul>
+</blockquote>
+</li>
+<li><p><a href="https://ssllabs.com/" target="_blank" rel="external">SSLLabs</a> 查看你的网站https安不安全</p>
+</li>
+<li><a href="http://op.baidu.com/2015/04/https-s01a01/" target="_blank" rel="external">百度https实践</a></li>
+</ol>
+<p>[^HSTS]: HTTP Strict Transport Security。我们现在请求http的站点时，会自动跳转到https的页面，其实这一步是存在安全风险的，但是通过HSTS，设置响应头Strict-Transport-Security: max-age=31536000; includeSubDomains，可保证用户即使输入http页面，也在浏览器级别会自动请求https页面，不需要经过服务器跳转。</p>
+<p>[^falsestart]: 查看<a href="http://chimera.labs.oreilly.com/books/1230000000545/ch04.html" target="_blank" rel="external">网址</a>，啥是false start（抢跑）。</p>
+<p><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0593.JPG" alt="enter image description here"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0594.JPG" alt="enter image description here"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0595.JPG" alt="enter image description here"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0596.JPG" alt="enter image description here"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0597.JPG" alt="enter image description here"></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>关键词：https优化，前端加载优化，hybrid，APM(application performance monitor）。</p>
+<ol>
+<li><p>https优化。</p>
+<blockquote>
+<ul>
+<li>HttpDNS, 通过http方式向第三方的]]>
+    </summary>
+    
+      <category term="velocity" scheme="http://git-patrickliu.github.io/tags/velocity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[reactjs]]></title>
+    <link href="http://git-patrickliu.github.io/2015/08/19/reactjs/"/>
+    <id>http://git-patrickliu.github.io/2015/08/19/reactjs/</id>
+    <published>2015-08-19T11:51:16.000Z</published>
+    <updated>2015-09-04T10:11:18.000Z</updated>
+    <content type="html"></content>
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="reactjs" scheme="http://git-patrickliu.github.io/tags/reactjs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <link href="http://git-patrickliu.github.io/2015/08/19/hello-world/"/>
+    <id>http://git-patrickliu.github.io/2015/08/19/hello-world/</id>
+    <published>2015-08-19T04:06:55.000Z</published>
+    <updated>2015-08-19T04:06:55.000Z</updated>
+    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io]]>
+    </summary>
+    
+  </entry>
+  
+</feed>

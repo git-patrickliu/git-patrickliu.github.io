@@ -1,0 +1,305 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Velocity会议总结 | patrickliu&#39;s blog</title>
+  <meta name="author" content="patrickliu">
+  
+  <meta name="description" content="关键词：https优化，前端加载优化，hybrid，APM(application performance monitor）。
+
+https优化。
+
+
+HttpDNS, 通过http方式向第三方的固定IP方式来获取指定域名的IP来进行DNS解析^httpDNS（我们可以考虑在客户端新增HttpDNS">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Velocity会议总结"/>
+  <meta property="og:site_name" content="patrickliu&#39;s blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="patrickliu&#39;s blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">patrickliu&#39;s blog</a></h1>
+  <h2><a href="/">Hi, I&#39;m 0827</a></h2>
+</div>
+<a href="https://github.com/git-patrickliu" target="_blank"><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-19T11:52:16.000Z"><a href="/2015/08/19/Velocity大会总结/">2015-08-19</a></time>
+      
+      
+  
+    <h1 class="title">Velocity会议总结</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>关键词：https优化，前端加载优化，hybrid，APM(application performance monitor）。</p>
+<ol>
+<li><p>https优化。</p>
+<blockquote>
+<ul>
+<li>HttpDNS, 通过http方式向第三方的固定IP方式来获取指定域名的IP来进行DNS解析<a href="这种方式可以解释我们之前域名被加黑名单的问题，但是如果又新增加域名，得客户端随时修改，建议通过下发方式来实现新域名prefetch。">^httpDNS</a>（我们可以考虑在客户端新增HttpDNS）</li>
+<li>启用HSTS[^HSTS] （我们尚未全站启用https，所以这个不太好启动）</li>
+<li>启用OCSP Stapling<a href="浏览器在下载服务端的证书之后会向证书发行商验证证书的合法性。因为是向国外网站验证，所以速度慢并存在着失败的可能性。所以可用的做法是在服务器端预先向服务器进行验证，然后打包证书供浏览器下载，这样浏览器就不用再去验证证书的合法性。注意，有效期大概为1个月。详见[网址](https://blog.xjpvictor.info/2013/09/nginx-ocsp-stapling/)。">^OCSP</a>（可以采用，但需要查看兼容性以及要及时更新签名，以及注意证书链大小）</li>
+<li>复用session，减少握手次数</li>
+<li>精确设置TLS Record Size，size过小，overhead比重增大，size过大，单record的TCP分段过多</li>
+<li>TLS硬件加速</li>
+<li>SPDY/HTTP2.0，可以研究，但近期可能用不上。</li>
+<li>配置Forward secrecy cipher 支持False start[^falsestart]  （可以采用，省掉一个RTT时间）</li>
+<li>升级openssl版本到最新（我们的版本是openssl-1.0.2c）</li>
+<li>确认TLS压缩禁用（nginx 1.3.x以上版本都自动关闭，不关闭有漏洞，我们nginx是1.6.3）</li>
+<li>确认SNI支持 （已支持，多个证书部署在同一个IP上）</li>
+<li>使用 <strong>//</strong>，来引用静态资源文件，保证http能无缝迁到https环境（我们已经使用了，但是一个360的同僚说在某些地方的移动运营商会将<strong>//</strong> 篡改为 <strong>/</strong>。但是iPhone5s 上海中国移动未发现问题）。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0612.JPG" alt="enter image description here"></li>
+</ul>
+</blockquote>
+</li>
+<li><p>页面直出方法，对比？</p>
+<blockquote>
+<ul>
+<li>nginx + lua 页面直出（京东618采用）<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0571.JPG" alt="enter image description here"></li>
+<li>ATS （apache traffic server）页面直出（Yahoo采用）</li>
+<li>nodejs直出</li>
+</ul>
+</blockquote>
+</li>
+<li><p>前端加载优化</p>
+<blockquote>
+<ul>
+<li>ebay优化尝试：DSA（dynamic site accelerate）动态加速，加快页面加载，采用WebP格式优化图片大小（理论能优化到以前60%大小）。</li>
+<li>composition layer，z-index相同导致的渲染变慢（阿里分享），可查看 <a href="http://www.w3ctech.com/topic/1463" target="_blank" rel="external">css conf</a> 360的分享有讨论此问题。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>hybrid</p>
+<blockquote>
+<ul>
+<li>百度 Blend UI系统架构。通过封装统一JS UI API，如果是在百度app内部的webview，则调用的是原生的UI样式，否则调用的是JS统一的UI样式<a href="百度blendUI详细如下：">^blendUI</a></li>
+<li>Yahoo 采用reactjs + <a href="https://facebook.github.io/flux/" target="_blank" rel="external">flux</a></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ol>
+<li>APM<blockquote>
+<ul>
+<li>今年的趋势是APM（application performance monitor），赞助商基本都是APM厂商（云智慧，性能魔方，性能极客，OneAPM，野狗等）。</li>
+<li>我们正在试用<a href="https://tpm.oneapm.com/tpm/account/717715137/browser/1326753/overview/#/" target="_blank" rel="external">OneAPM</a>进行页面加载测试。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h4 id="总结：">总结：</h4><h5 id="一些方法论：">一些方法论：</h5><blockquote>
+<ul>
+<li>保持simplicity<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0560.JPG" alt="enter image description here"></li>
+<li>build high performance team<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0585.JPG" alt="enter image description here"></li>
+<li>优化问题方法论<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0616.JPG" alt="enter image description here"></li>
+</ul>
+</blockquote>
+<h5 id="我们暂时能够跟进的：">我们暂时能够跟进的：</h5><blockquote>
+<ul>
+<li>客户端采用http协议的httpDNS来加速DNS查询，能有效防止之前DNS解析问题。</li>
+<li>https优化全部跟进，已将dev全部改成TLSv1.2，排期全部改造并上线。</li>
+<li>CDN动态加速（DSA）咨询，并开启。</li>
+<li>hybrid现阶段讨论结果是采用PhoneGap。</li>
+<li>试用OneAPM跟进数据，然后基于数据进行优化。</li>
+</ul>
+</blockquote>
+<h5 id="一些有用的网站分享：">一些有用的网站分享：</h5><ol>
+<li><p>关于html标准的网站。</p>
+<blockquote>
+<ul>
+<li><a href="http://specifiction.wicg.io" target="_blank" rel="external">specifiction</a>|<a href="http://discourse.wicg.io" target="_blank" rel="external">Discourse</a> ask question</li>
+<li>Contribute tests on <a href="http://testthewebforward.org" target="_blank" rel="external">testthewebforward</a></li>
+<li><a href="http://www.w3.org/community/wicg" target="_blank" rel="external">W3 Community</a></li>
+<li><a href="http://extensiblewebmanifesto.org" target="_blank" rel="external">extensiblewebmanifesto</a></li>
+<li><a href="http://webcomponents.org" target="_blank" rel="external">webcomponents</a></li>
+</ul>
+</blockquote>
+</li>
+<li><p><a href="https://ssllabs.com/" target="_blank" rel="external">SSLLabs</a> 查看你的网站https安不安全</p>
+</li>
+<li><a href="http://op.baidu.com/2015/04/https-s01a01/" target="_blank" rel="external">百度https实践</a></li>
+</ol>
+<p>[^HSTS]: HTTP Strict Transport Security。我们现在请求http的站点时，会自动跳转到https的页面，其实这一步是存在安全风险的，但是通过HSTS，设置响应头Strict-Transport-Security: max-age=31536000; includeSubDomains，可保证用户即使输入http页面，也在浏览器级别会自动请求https页面，不需要经过服务器跳转。</p>
+<p>[^falsestart]: 查看<a href="http://chimera.labs.oreilly.com/books/1230000000545/ch04.html" target="_blank" rel="external">网址</a>，啥是false start（抢跑）。</p>
+<p><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0593.JPG" alt="enter image description here"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0594.JPG" alt="enter image description here"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0595.JPG" alt="enter image description here"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0596.JPG" alt="enter image description here"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0597.JPG" alt="enter image description here"></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/velocity/">velocity</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-Velocity大会总结" data-title="Velocity会议总结" data-url="http://git-patrickliu.github.io/2015/08/19/Velocity大会总结/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'blogdapenggaofei'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:git-patrickliu.github.io">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/APM/">APM</a><small>1</small></li>
+  
+    <li><a href="/tags/OneAPM/">OneAPM</a><small>1</small></li>
+  
+    <li><a href="/tags/OneApm/">OneApm</a><small>0</small></li>
+  
+    <li><a href="/tags/OneApm-APM-monitor/">OneApm APM monitor</a><small>0</small></li>
+  
+    <li><a href="/tags/OneApm-APM-monitor/">OneApm, APM, monitor</a><small>0</small></li>
+  
+    <li><a href="/tags/monitor/">monitor</a><small>1</small></li>
+  
+    <li><a href="/tags/reactjs/">reactjs</a><small>1</small></li>
+  
+    <li><a href="/tags/velocity/">velocity</a><small>1</small></li>
+  
+    <li><a href="/tags/多说/">多说</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2015/09/04/access-in-oneapm/">OneAPM，just the one.</a>
+      </li>
+    
+      <li>
+        <a href="/2015/09/04/duoshuo/">接入多说评论</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/19/Velocity大会总结/">Velocity会议总结</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/19/reactjs/">reactjs</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/19/hello-world/">Hello World</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/APM/" style="font-size: 10px;">APM</a> <a href="/tags/OneAPM/" style="font-size: 10px;">OneAPM</a> <a href="/tags/monitor/" style="font-size: 10px;">monitor</a> <a href="/tags/reactjs/" style="font-size: 10px;">reactjs</a> <a href="/tags/velocity/" style="font-size: 10px;">velocity</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 patrickliu
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script type='text/javascript'>window.BWEUM||(BWEUM={});BWEUM.info = {"stand":true,"agentType":"browser","agent":"tpm.oneapm.com/static/js/bw-send-411.4.5.js","beaconUrl":"tpm.oneapm.com/beacon","licenseKey":"bzRNE~ReaYemN3q6","applicationID":1222914};</script><script async type="text/javascript" src="//tpm.oneapm.com/static/js/bw-loader-411.4.5.js"></script>
+
+</body>
+</html>

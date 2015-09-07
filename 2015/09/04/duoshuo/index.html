@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>接入多说评论 | patrickliu&#39;s blog</title>
+  <meta name="author" content="patrickliu">
+  
+  <meta name="description" content="我这个blog是基于hexo构建的，是纯静态html的。所以评论就是一个问题，在网上搜了一下发现多说，可以实现评论的功能。多说是通过在你的页面当中内嵌一个多说的JS来实现评论的功能。所以我们需要将多说的JS内嵌到我们的hexo创建的博客当中。
+1. 多说添加网站当然，首先我们需要在多说添加一个网站，">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="接入多说评论"/>
+  <meta property="og:site_name" content="patrickliu&#39;s blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="patrickliu&#39;s blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">patrickliu&#39;s blog</a></h1>
+  <h2><a href="/">Hi, I&#39;m 0827</a></h2>
+</div>
+<a href="https://github.com/git-patrickliu" target="_blank"><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-04T09:22:16.000Z"><a href="/2015/09/04/duoshuo/">2015-09-04</a></time>
+      
+      
+  
+    <h1 class="title">接入多说评论</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>我这个blog是基于<a href="http://hexo.io" target="_blank" rel="external">hexo</a>构建的，是纯静态html的。所以评论就是一个问题，在网上搜了一下发现<a href="http://dev.duoshuo.com/" target="_blank" rel="external">多说</a>，可以实现评论的功能。<br>多说是通过在你的页面当中内嵌一个多说的JS来实现评论的功能。所以我们需要将多说的JS内嵌到我们的hexo创建的博客当中。</p>
+<h3 id="1-_多说添加网站">1. 多说添加网站</h3><p>当然，首先我们需要在多说添加一个网站，<a href="http://duoshuo.com/create-site/" target="_blank" rel="external">多说创建页面</a>，在此页面添加你自己的网站信息。</p>
+<h3 id="2-_拷贝通用代码">2. 拷贝通用代码</h3><p>然后进入对应的管理后台，选择 <code>工具</code> – <code>获取代码</code> – <code>通用代码</code>, 然后可以查看到多说需要你在你的页面中插入的代码。</p>
+<h3 id="3-_修改_config-yml">3. 修改_config.yml</h3><p>到hexo你的博客的根目录，在_config.yml里面新增一个变量，如duoshuo_shortname: your-short-name-in-duo-shuo。这个变量名是随便起的，但是要跟下一步对应起来。变量值，是你在第1步当中输入的多说域名。</p>
+<h3 id="4-_修改主题中评论代码">4. 修改主题中评论代码</h3><p>到hexo当中找到你选用的themes的文件夹，比如我用的是light的主题，则在themes/light/layout/_partial/comment.ejs, 其实不同的主题，对应的文件是不一样的，这一步就需要大家稍微去看一下里面的代码。比如我这边light主题comment.ejs里面其实已经有light主题内置的facebook或disqus评论组件，然并卵，这是一个不存在的网站。<br>原始代码是：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (page.comments)&#123; %&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">section</span> <span class="attribute">id</span>=<span class="value">"comment"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">class</span>=<span class="value">"title"</span>&gt;</span><span class="tag">&lt;<span class="title">%=</span> <span class="attribute">__</span>('<span class="attribute">comment</span>') %&gt;</span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="title">%</span> <span class="attribute">if</span> (<span class="attribute">theme.comment_provider</span> =<span class="value">=</span> "<span class="attribute">facebook</span>") &#123;</span><br><span class="line">      <span class="attribute">if</span> (<span class="attribute">theme.facebook</span>) &#123; %&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">%-</span> <span class="attribute">partial</span>('<span class="attribute">_partial</span>/<span class="attribute">facebook_comment</span>', &#123;<span class="attribute">fbConfig:</span> <span class="attribute">theme.facebook</span>&#125;) %&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">%</span> &#125; %&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">%</span> &#125; <span class="attribute">else</span> <span class="attribute">if</span>(<span class="attribute">config.disqus_shortname</span>) &#123; %&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"disqus_thread"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">noscript</span>&gt;</span>Please enable JavaScript to view the <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"//disqus.com/?ref_noscript"</span>&gt;</span>comments powered by Disqus.<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">noscript</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">%</span> &#125; %&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">%</span> &#125; %&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>在度娘搜示例的时候，里面出现的变量是post，如果二话不说，将代码直接替换，hexo编译的时候会出问题。如<a href="http://dev.duoshuo.com/threads/541d3b2b40b5abcd2e4df0e9" target="_blank" rel="external">多说官方</a>提供了这个示例。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (!index &amp;&amp; post.comments &amp;&amp; config.duoshuo_shortname)&#123; %&gt;</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="title">section</span> <span class="attribute">id</span>=<span class="value">"comments"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 多说评论框 start --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"ds-thread"</span> <span class="attribute">data-thread-key</span>=<span class="value">"&lt;%= post.layout %&gt;-&lt;%= post.slug %&gt;"</span> <span class="attribute">data-title</span>=<span class="value">"&lt;%= post.title %&gt;"</span> <span class="attribute">data-url</span>=<span class="value">"&lt;%= page.permalink %&gt;"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 多说评论框 end --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 多说公共JS代码 start (一个网页只需插入一次) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="keyword">var</span> duoshuoQuery = &#123;short_name:<span class="string">'&lt;%= config.duoshuo_shortname %&gt;'</span>&#125;;</span><br><span class="line">      (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> ds = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">        ds.type = <span class="string">'text/javascript'</span>;ds.async = <span class="literal">true</span>;</span><br><span class="line">        ds.src = (<span class="built_in">document</span>.location.protocol == <span class="string">'https:'</span> ? <span class="string">'https:'</span> : <span class="string">'http:'</span>) + <span class="string">'//static.duoshuo.com/embed.js'</span>;</span><br><span class="line">        ds.charset = <span class="string">'UTF-8'</span>;</span><br><span class="line">        (<span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>]</span><br><span class="line">         || <span class="built_in">document</span>.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>]).appendChild(ds);</span><br><span class="line">      &#125;)();</span><br><span class="line">      </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 多说公共JS代码 end --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">section</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">%</span> &#125; %&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>相信熟悉ejs模板语言的都清楚，如果调用comment.ejs的地方没有传入post参数，则在当前页面不能调用这个值。我们看一下发现在article.ejs当中有调用comment.ejs。最下面一行，<code>&lt;%- partial(&#39;comment&#39;) %&gt;</code>，在页面当中有传入item的值，并且我们简单看了一下item的一些属性值和post有点像，我们大胆地将最后一行改成<code>&lt;%- partial(&#39;comment&#39;, { post: item }) %&gt;</code>，然后运行一下<code>hexo g</code>，发现可行。这样就改好了。</p>
+<p>其实对于其他类型的themes其实也是一样的。看一下代码改改变量就ok了。<br>按照之上几步就可以在hexo博客当中插入多说评论。大家有问题欢迎评论。谢谢：)。</p>
+<h3 id="参考">参考</h3><ol>
+<li>更多的信息请查看 <a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">http://ibruce.info/2013/11/22/hexo-your-blog/</a></li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/多说/">多说</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-duoshuo" data-title="接入多说评论" data-url="http://git-patrickliu.github.io/2015/09/04/duoshuo/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'blogdapenggaofei'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:git-patrickliu.github.io">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/APM/">APM</a><small>1</small></li>
+  
+    <li><a href="/tags/OneAPM/">OneAPM</a><small>1</small></li>
+  
+    <li><a href="/tags/OneApm/">OneApm</a><small>0</small></li>
+  
+    <li><a href="/tags/OneApm-APM-monitor/">OneApm APM monitor</a><small>0</small></li>
+  
+    <li><a href="/tags/OneApm-APM-monitor/">OneApm, APM, monitor</a><small>0</small></li>
+  
+    <li><a href="/tags/monitor/">monitor</a><small>1</small></li>
+  
+    <li><a href="/tags/reactjs/">reactjs</a><small>1</small></li>
+  
+    <li><a href="/tags/velocity/">velocity</a><small>1</small></li>
+  
+    <li><a href="/tags/多说/">多说</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2015/09/04/access-in-oneapm/">OneAPM，just the one.</a>
+      </li>
+    
+      <li>
+        <a href="/2015/09/04/duoshuo/">接入多说评论</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/19/Velocity大会总结/">Velocity会议总结</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/19/reactjs/">reactjs</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/19/hello-world/">Hello World</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/APM/" style="font-size: 10px;">APM</a> <a href="/tags/OneAPM/" style="font-size: 10px;">OneAPM</a> <a href="/tags/monitor/" style="font-size: 10px;">monitor</a> <a href="/tags/reactjs/" style="font-size: 10px;">reactjs</a> <a href="/tags/velocity/" style="font-size: 10px;">velocity</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 patrickliu
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script type='text/javascript'>window.BWEUM||(BWEUM={});BWEUM.info = {"stand":true,"agentType":"browser","agent":"tpm.oneapm.com/static/js/bw-send-411.4.5.js","beaconUrl":"tpm.oneapm.com/beacon","licenseKey":"bzRNE~ReaYemN3q6","applicationID":1222914};</script><script async type="text/javascript" src="//tpm.oneapm.com/static/js/bw-loader-411.4.5.js"></script>
+
+</body>
+</html>
