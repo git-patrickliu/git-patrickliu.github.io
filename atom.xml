@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Hi, I'm 0827]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://git-patrickliu.github.io/"/>
-  <updated>2015-09-28T11:39:07.000Z</updated>
+  <updated>2015-09-29T06:46:58.000Z</updated>
   <id>http://git-patrickliu.github.io/</id>
   
   <author>
@@ -19,12 +19,15 @@
     <link href="http://git-patrickliu.github.io/2015/09/27/qiniu-remote-upload-api/"/>
     <id>http://git-patrickliu.github.io/2015/09/27/qiniu-remote-upload-api/</id>
     <published>2015-09-27T08:03:10.000Z</published>
-    <updated>2015-09-28T11:39:07.000Z</updated>
+    <updated>2015-09-29T06:46:58.000Z</updated>
     <content type="html"><![CDATA[<p><a href="http://blog.dapenggaofei.com/2015/09/17/qiniu-add-to-favourite/" target="_blank" rel="external">上一篇</a> 文章我们讲到了利用七牛API来实现直接在网页上爬图的功能。主要是用到了下面两个API，在官方文档也找了大半天，没找到一个真正能用的例子，这里就将官方例子丰富一下，以便下次使用的时候能查到。</p>
 <h3 id="1-_base64上传">1. base64上传</h3><p>刚开始有做这个chrome扩展的时候，最初就是想着七牛有没有提供base64上传的功能。这样的话，就可以直接将这个功能搞定了，现在想想当时还是太naive。在七牛文档也没搜到base64上传的API，倒是直接在百度搜索的时候搜到了。<a href="http://kb.qiniu.com/5rroxdgb" target="_blank" rel="external">前往七牛查看API</a>。发现竟然在知识库，而不在开发者文档专区，也是奇怪。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">putb64</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> pic = <span class="string">"填写你的base64后的字符串"</span>; <span class="comment">// 这里有一个坑，请除去MIME和base64以及逗号</span></span><br><span class="line">    <span class="keyword">var</span> url = <span class="string">"http://up.qiniu.com/putb64/20264"</span>; <span class="comment">//如果不想计算文件大小，可以改成http://up.qiniu.com/putb64/-1</span></span><br><span class="line">    <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    xhr.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (xhr.readyState==<span class="number">4</span>)&#123;</span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">"myDiv"</span>).innerHTML=xhr.responseText;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    xhr.open(<span class="string">"POST"</span>, url, <span class="literal">true</span>);</span><br><span class="line">    xhr.setRequestHeader(<span class="string">"Content-Type"</span>, <span class="string">"application/octet-stream"</span>);</span><br><span class="line">    xhr.setRequestHeader(<span class="string">"Authorization"</span>, <span class="string">"UpToken  填写你从服务端获取的上传token"</span>); <span class="comment">//UpToken其实有挺多问题</span></span><br><span class="line">    xhr.send(pic);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>上面是官方给的JS示例，注释是我加的。有着以下几个问题：</p>
 <ol>
-<li>传的pic的值，一定要是base64之后去掉MIME前面几个字符，以及base64加逗号那几个字符才是正常传的值。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/qiniu-remote-upload-1.png?v=1" alt="base64字符串"></li>
+<li>传的pic的值，一定要是base64之后去掉MIME前面几个字符，以及base64加逗号那几个字符才是正常传的值。</li>
+</ol>
+<p><img src="http://7xkybo.com1.z0.glb.clouddn.com/qiniu-remote-upload-1.png?v=1" alt="base64字符串"></p>
+<ol>
 <li>如果不想算大小的话，比如我，直接在url当中改成-1。</li>
 <li>重点来了，UpToken，其算法在<a href="http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html" target="_blank" rel="external">官网</a>写得非常清楚 ，但是呢，我一直在scope里面传<code>&lt;bucket&gt;:&lt;key&gt;</code>，一直是返回401，说是授权不合法。后来尝试了一下scope只传<code>&lt;bucket&gt;</code>，但是在saveKey当中传想要的key值，才能授权正常，也是醉了。</li>
 </ol>
@@ -56,15 +59,21 @@
     <link href="http://git-patrickliu.github.io/2015/09/17/qiniu-add-to-favourite/"/>
     <id>http://git-patrickliu.github.io/2015/09/17/qiniu-add-to-favourite/</id>
     <published>2015-09-17T05:24:40.000Z</published>
-    <updated>2015-09-28T09:46:12.000Z</updated>
+    <updated>2015-09-29T06:47:43.000Z</updated>
     <content type="html"><![CDATA[<p>嗯。本文的主题是”将世界美景收纳怀中“， 那如何将世界美景收纳怀中呢？在浏览网站看到好的图片的时候，你是右键下载到本地，最后文件塞满了你的本地硬盘然后最终只好全部删除而收场？此时你需要一个网页自动存储图片工具。</p>
 <p>当当当当，”七牛在线存图“工具闪耀登场。这个一个chrome扩展，意思就是只能在chrome浏览器当中使用，<a href="https://chrome.google.com/webstore/detail/%E4%B8%83%E7%89%9B%E5%9C%A8%E7%BA%BF%E5%AD%98%E5%9B%BE/ojgilmgaopbpimndoelnhacamaabdpni" target="_blank" rel="external">【点我下载】</a>。</p>
 <p>七牛在线存图到底有什么功能呢？看看以下操作示意图就知晓了。</p>
 <ol>
 <li>如果不了解七牛是什么？可以先百度之。大家先需要去七牛注册一个账号<a href="https://portal.qiniu.com/signup?code=3lowmdo5c9kya" target="_blank" rel="external">【点我注册】</a>。大家可以在账号里面看到你的Access Token和 Secret Token。</li>
 <li>在七牛当中创建文件空间（bucket），并在”空间设置“–》”域名设置“ 当中可以查看到此空间对应的域名。</li>
-<li>在安装完”七牛在线存图“之后，在弹出的options.html，输入第1步和第2步的数据。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/qiniu-intro1.png" alt="七牛在线存图设置"></li>
-<li>设置完毕之后，你就可以直接在线存图了。看到心宜的图千万不要放过。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/qiniu-intro.png" alt="在线存图操作"></li>
+<li>在安装完”七牛在线存图“之后，在弹出的options.html，输入第1步和第2步的数据。</li>
+</ol>
+<p><img src="http://7xkybo.com1.z0.glb.clouddn.com/qiniu-intro1.png" alt="七牛在线存图设置"></p>
+<ol>
+<li>设置完毕之后，你就可以直接在线存图了。看到心宜的图千万不要放过。</li>
+</ol>
+<p><img src="http://7xkybo.com1.z0.glb.clouddn.com/qiniu-intro.png" alt="在线存图操作"></p>
+<ol>
 <li>存图成功之后，就会弹出新的tab，打开刚才保存的图片了。</li>
 </ol>
 <p>如果是本地上传文件到七牛，推荐这个chrome扩展，<a href="https://chrome.google.com/webstore/detail/qiniu-upload-files/emmfkgdgapbjphdolealbojmcmnphdcc" target="_blank" rel="external">【点击前往】</a>。</p>
@@ -81,11 +90,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[Learn in cordova]]></title>
+    <title><![CDATA[cordova学习小记（一）]]></title>
     <link href="http://git-patrickliu.github.io/2015/09/17/cordova-first/"/>
     <id>http://git-patrickliu.github.io/2015/09/17/cordova-first/</id>
     <published>2015-09-17T05:18:20.000Z</published>
-    <updated>2015-09-17T05:22:46.000Z</updated>
+    <updated>2015-09-28T11:44:24.000Z</updated>
     <content type="html"></content>
     <summary type="html">
     
@@ -102,7 +111,7 @@
     <link href="http://git-patrickliu.github.io/2015/09/04/access-in-oneapm/"/>
     <id>http://git-patrickliu.github.io/2015/09/04/access-in-oneapm/</id>
     <published>2015-09-04T14:07:51.000Z</published>
-    <updated>2015-09-07T11:23:56.000Z</updated>
+    <updated>2015-09-29T06:44:58.000Z</updated>
     <content type="html"><![CDATA[<p>先用一组数据来开始整篇文章吧。</p>
 <ol>
 <li>如果亚马逊页面加载每慢100ms，将影响他们1%的收入。</li>
@@ -116,7 +125,8 @@
 <p>我想说，大家都习惯了用google分析，百度分析，腾讯分析等等，对在页面当中插入一段受信任方的JS并没有多大的反感。所以我开始试用就是采用了第一种方式，方便快捷，并且对代码影响是最小的。有某些APM工具，只支持上面的第二种，门槛略高，要想用一下还得改后台代码，还是挺麻烦了。</p>
 <h3 id="OneAPM_提供了非常丰富的展现维度">OneAPM 提供了非常丰富的展现维度</h3><p>大家可以去<a href="http://www.oneapm.com" target="_blank" rel="external">OneAPM</a>上看一下，展现的<code>维度</code>是相当的丰富。</p>
 <p><img src="http://7xkybo.com1.z0.glb.clouddn.com/oneapm1.png" alt="OneAPM sidebar "><br>OneAPM并不只是提供简单的浏览器performance的上报，而是对其进行了一定的归纳，将其归为，白屏时间、首屏时间、H5启动时间和网页就绪时间（这样挺好，但是我觉得如果也能同时展示出原始的performance信息，对专业调优的前端会更友好一些）。</p>
-<p>还支持<code>浏览器</code>, <code>运营商</code>, <code>地理</code> 三个围度的加载情况查看。提供了慢事务追踪，静态文件加载瀑布流。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/oneapm2.png" alt="总览"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/oneapm3.png" alt="瀑布流"></p>
+<p>还支持<code>浏览器</code>, <code>运营商</code>, <code>地理</code> 三个围度的加载情况查看。提供了慢事务追踪，静态文件加载瀑布流。</p>
+<p><img src="http://7xkybo.com1.z0.glb.clouddn.com/oneapm2.png" alt="总览"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/oneapm3.png" alt="瀑布流"></p>
 <p>其实上面2点，是我们最初想要的功能。能提供我们就已经很开心了。后面的几个额外功能更加让我们确信要使用OneAPM了。</p>
 <h3 id="Ajax耗时功能">Ajax耗时功能</h3><p>这是一个非常好用的功能。相信后台艰苦卓绝的将后台CGI响应减少了10ms，但是前端一不小心就多了100ms，甚至大几百ms。所以前端AJAX测速同样是非常重要的。我们可以在这查看到哪一些CGI的速度慢，可以进行专项优化。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/oneapm4.png" alt="Ajax耗时检测"></p>
 <h3 id="脚本错误功能">脚本错误功能</h3><p>这个功能不得不赞一下，因为他让我们发现了不少内嵌APP页面的错误。开发过mobile APP内嵌页的同学们都知道，移动端的调试非常麻烦，而移动端的错误就更加难以捕捉。有了这个功能，我们可以迅速知道我们线上页面的健康度（尤其是线上出现重大BUG，突发某一些错误时）。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/oneapm5.png" alt="脚本错误展示"></p>
