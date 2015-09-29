@@ -611,11 +611,11 @@
 https优化。
 
 
-HttpDNS, 通过http方式向第三方的固定IP方式来获取指定域名的IP来进行DNS解析^httpDNS（我们可以考虑在客户端新增HttpDNS）
-启用HSTS[^HSTS] （我们尚未全站启用https，所以这个不太好启动）
-启用OCSP Stapling^OCSP（可以采用，但需要查看兼容性以及要及时更新签名，以及注意证书链大小）
+HttpDNS, 通过http方式向第三方的固定IP方式来获取指定域名的IP来进行DNS解析（我们可以考虑在客户端新增HttpDNS）
+启用[HSTS][^HSTS] （我们尚未全站启用https，所以这个不太好启动）
+启用OCSP Stapling（可以采用，但需要查看兼容性以及要及时更新签名，以及注意证书链大小）
 复用session，减少握手次数
-精确设置TLS Record Size，size过小，overhead比重增
+精确设置TLS Record Size，size过小，overhead比重增大，size过大，单r
             ...
           </span>
           <div class="post-more-link text-center">

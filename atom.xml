@@ -181,31 +181,31 @@
     <link href="http://git-patrickliu.github.io/2015/08/19/Velocity%E5%A4%A7%E4%BC%9A%E6%80%BB%E7%BB%93/"/>
     <id>http://git-patrickliu.github.io/2015/08/19/Velocity大会总结/</id>
     <published>2015-08-19T11:52:16.000Z</published>
-    <updated>2015-09-28T09:45:37.000Z</updated>
+    <updated>2015-09-29T06:59:50.000Z</updated>
     <content type="html"><![CDATA[<p>关键词：tps优化，前端加载优化，hybrid，APM(application performance monitor）。</p>
 <ol>
 <li><p>https优化。</p>
 <blockquote>
 <ul>
-<li>HttpDNS, 通过http方式向第三方的固定IP方式来获取指定域名的IP来进行DNS解析<a href="这种方式可以解释我们之前域名被加黑名单的问题，但是如果又新增加域名，得客户端随时修改，建议通过下发方式来实现新域名prefetch。">^httpDNS</a>（我们可以考虑在客户端新增HttpDNS）</li>
-<li>启用HSTS[^HSTS] （我们尚未全站启用https，所以这个不太好启动）</li>
-<li>启用OCSP Stapling<a href="浏览器在下载服务端的证书之后会向证书发行商验证证书的合法性。因为是向国外网站验证，所以速度慢并存在着失败的可能性。所以可用的做法是在服务器端预先向服务器进行验证，然后打包证书供浏览器下载，这样浏览器就不用再去验证证书的合法性。注意，有效期大概为1个月。详见[网址](https://blog.xjpvictor.info/2013/09/nginx-ocsp-stapling/)。">^OCSP</a>（可以采用，但需要查看兼容性以及要及时更新签名，以及注意证书链大小）</li>
+<li>HttpDNS, 通过http方式向第三方的固定IP方式来获取指定域名的IP来进行<a href="这种方式可以解释我们之前域名被加黑名单的问题，但是如果又新增加域名，得客户端随时修改，建议通过下发方式来实现新域名prefetch。">DNS解析</a>（我们可以考虑在客户端新增HttpDNS）</li>
+<li>启用[HSTS][^HSTS] （我们尚未全站启用https，所以这个不太好启动）</li>
+<li>启用<a href="浏览器在下载服务端的证书之后会向证书发行商验证证书的合法性。因为是向国外网站验证，所以速度慢并存在着失败的可能性。所以可用的做法是在服务器端预先向服务器进行验证，然后打包证书供浏览器下载，这样浏览器就不用再去验证证书的合法性。注意，有效期大概为1个月。详见[网址](https://blog.xjpvictor.info/2013/09/nginx-ocsp-stapling/)。">OCSP Stapling</a>（可以采用，但需要查看兼容性以及要及时更新签名，以及注意证书链大小）</li>
 <li>复用session，减少握手次数</li>
 <li>精确设置TLS Record Size，size过小，overhead比重增大，size过大，单record的TCP分段过多</li>
 <li>TLS硬件加速</li>
 <li>SPDY/HTTP2.0，可以研究，但近期可能用不上。</li>
-<li>配置Forward secrecy cipher 支持False start[^falsestart]  （可以采用，省掉一个RTT时间）</li>
+<li>配置Forward secrecy cipher 支持[False start][^falsestart]  （可以采用，省掉一个RTT时间）</li>
 <li>升级openssl版本到最新（我们的版本是openssl-1.0.2c）</li>
 <li>确认TLS压缩禁用（nginx 1.3.x以上版本都自动关闭，不关闭有漏洞，我们nginx是1.6.3）</li>
 <li>确认SNI支持 （已支持，多个证书部署在同一个IP上）</li>
-<li>使用 <strong>//</strong>，来引用静态资源文件，保证http能无缝迁到https环境（我们已经使用了，但是一个360的同僚说在某些地方的移动运营商会将<strong>//</strong> 篡改为 <strong>/</strong>。但是iPhone5s 上海中国移动未发现问题）。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0612.JPG" alt="enter image description here"></li>
+<li>使用 <strong>//</strong>，来引用静态资源文件，保证http能无缝迁到https环境（我们已经使用了，但是一个360的同僚说在某些地方的移动运营商会将<strong>//</strong> 篡改为 <strong>/</strong>。但是iPhone5s 上海中国移动未发现问题）。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0612.JPG" alt="TLS总结"></li>
 </ul>
 </blockquote>
 </li>
 <li><p>页面直出方法，对比？</p>
 <blockquote>
 <ul>
-<li>nginx + lua 页面直出（京东618采用）<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0571.JPG" alt="enter image description here"></li>
+<li>nginx + lua 页面直出（京东618采用）<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0571.JPG" alt="nginx + lua"></li>
 <li>ATS （apache traffic server）页面直出（Yahoo采用）</li>
 <li>nodejs直出</li>
 </ul>
@@ -222,7 +222,7 @@
 <li><p>hybrid</p>
 <blockquote>
 <ul>
-<li>百度 Blend UI系统架构。通过封装统一JS UI API，如果是在百度app内部的webview，则调用的是原生的UI样式，否则调用的是JS统一的UI样式<a href="百度blendUI详细如下：">^blendUI</a></li>
+<li>百度 Blend UI系统架构。通过封装统一JS UI API，如果是在百度app内部的webview，则调用的是原生的UI样式，否则调用的是JS统一的<a href="百度blendUI详细如下：">UI样式</a></li>
 <li>Yahoo 采用reactjs + <a href="https://facebook.github.io/flux/" target="_blank" rel="external">flux</a></li>
 </ul>
 </blockquote>
@@ -239,9 +239,9 @@
 </ol>
 <h4 id="总结：">总结：</h4><h5 id="一些方法论：">一些方法论：</h5><blockquote>
 <ul>
-<li>保持simplicity<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0560.JPG" alt="enter image description here"></li>
-<li>build high performance team<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0585.JPG" alt="enter image description here"></li>
-<li>优化问题方法论<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0616.JPG" alt="enter image description here"></li>
+<li>保持simplicity<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0560.JPG" alt="保持简单"></li>
+<li>build high performance team<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0585.JPG" alt="high performance team"></li>
+<li>优化问题方法论<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0616.JPG" alt="优化步骤"></li>
 </ul>
 </blockquote>
 <h5 id="我们暂时能够跟进的：">我们暂时能够跟进的：</h5><blockquote>
@@ -271,7 +271,7 @@
 </ol>
 <p>[^HSTS]: HTTP Strict Transport Security。我们现在请求http的站点时，会自动跳转到https的页面，其实这一步是存在安全风险的，但是通过HSTS，设置响应头Strict-Transport-Security: max-age=31536000; includeSubDomains，可保证用户即使输入http页面，也在浏览器级别会自动请求https页面，不需要经过服务器跳转。</p>
 <p>[^falsestart]: 查看<a href="http://chimera.labs.oreilly.com/books/1230000000545/ch04.html" target="_blank" rel="external">网址</a>，啥是false start（抢跑）。</p>
-<p><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0593.JPG" alt="enter image description here"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0594.JPG" alt="enter image description here"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0595.JPG" alt="enter image description here"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0596.JPG" alt="enter image description here"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0597.JPG" alt="enter image description here"></p>
+<p><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0593.JPG" alt="blend UI 1"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0594.JPG" alt="blend UI 2"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0595.JPG" alt="blend UI 3"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0596.JPG" alt="blend UI 4"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0597.JPG" alt="blend UI 5"></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>关键词：tps优化，前端加载优化，hybrid，APM(application performance monitor）。</p>
