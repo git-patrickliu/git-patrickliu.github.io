@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Hi, I'm 0827]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://git-patrickliu.github.io/"/>
-  <updated>2015-10-06T13:16:46.000Z</updated>
+  <updated>2016-03-12T09:35:45.000Z</updated>
   <id>http://git-patrickliu.github.io/</id>
   
   <author>
@@ -13,6 +13,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[自适应雪碧图]]></title>
+    <link href="http://git-patrickliu.github.io/2016/03/12/adaptive-sprite/"/>
+    <id>http://git-patrickliu.github.io/2016/03/12/adaptive-sprite/</id>
+    <published>2016-03-12T09:33:47.000Z</published>
+    <updated>2016-03-12T09:35:45.000Z</updated>
+    <content type="html"><![CDATA[<p>说起雪碧图，前端新老司机们应该都不陌生。通过将页面中琐碎的小图合成一张大图，可以减少页面请求数，加快页面加载速度。</p>
+<p>但是对于自适应雪碧图，大家可能了解的不多。这里给大家介绍一种可以自适应的雪碧图，就是雪碧图里面的子图可以自适应不同大小的标签。<a href="https://jsfiddle.net/dapenggaofei/rjm4ykj2/" target="_blank" rel="external">狠狠点击查看效果</a>。</p>
+<p>实现的原理其实也挺简单的，主要是应用了CSS3的 <strong>background-size</strong> 的属性。在用compass合并雪碧图之后，图片的background-position其实都已经算好了，将对应的class放置到我们的标签上，背景图片至少应该出现（或部分出现）在我们的标签之中，现在我们需要的就是通过background-size放大或缩小图片，将我们需要的背景图片放置在标签之中。</p>
+<p>那是放大或缩小多少倍呢？下面我们可以看以下一个简略的推导过程（我们只推演宽度的情况，高度是同理的）。<br><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 假设合成之后的雪碧图宽是 W1, 需要显示的子图片宽度是 W2, 以子图为背景的标签宽度是 W3，background-size的宽度是x</span><br><span class="line"><span class="number">2.</span> 有公式 x/W3 = W1/W2 =&gt; x = W1*W3/W2</span><br><span class="line"><span class="number">3.</span> 所以 background-size 的宽度值为 W1*W3/W2</span><br></pre></td></tr></table></figure></p>
+<p>经过上面算出来的background-size正好满足了让子图的正好出现在所需要的标签当中。标签宽度变化，只要更改background-size的值就可以了，而这一些都可以用compass去自动帮大家生成。从而实现了一个自适应的雪碧图。</p>
+<p>大家可以去我的github上查看实现的compass的源代码和实例 (<a href="https://github.com/git-patrickliu/responsive-compass-sprite" target="_blank" rel="external">即刻前往</a>)。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>说起雪碧图，前端新老司机们应该都不陌生。通过将页面中琐碎的小图合成一张大图，可以减少页面请求数，加快页面加载速度。</p>
+<p>但是对于自适应雪碧图，大家可能了解的不多。这里给大家介绍一种可以自适应的雪碧图，就是雪碧图里面的子图可以自适应不同大小的标签。<a href="]]>
+    </summary>
+    
+      <category term="adaptive" scheme="http://git-patrickliu.github.io/tags/adaptive/"/>
+    
+      <category term="compass" scheme="http://git-patrickliu.github.io/tags/compass/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[float-division]]></title>
+    <link href="http://git-patrickliu.github.io/2015/12/13/float-division/"/>
+    <id>http://git-patrickliu.github.io/2015/12/13/float-division/</id>
+    <published>2015-12-13T10:37:29.000Z</published>
+    <updated>2015-12-13T10:38:42.000Z</updated>
+    <content type="html"></content>
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="js float division" scheme="http://git-patrickliu.github.io/tags/js-float-division/"/>
+    
+      <category term="js 浮点数除法" scheme="http://git-patrickliu.github.io/tags/js-%E6%B5%AE%E7%82%B9%E6%95%B0%E9%99%A4%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[如何科学上网]]></title>
