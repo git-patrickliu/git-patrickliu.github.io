@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="APN,科学上网," />
+  <meta name="keywords" content="LUA,NGINX," />
 
 
 
@@ -39,37 +39,22 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="科学上网，真是具有中国特色的一个词汇。德先生我们需要关注，但是赛先生我们更加需要关注。下面介绍一些技术来让大家自由地和国外的赛先生交流。
-想自搭科学上网工具的同学，需要准备以下几个硬作案工具。
-
-国外VPS（如linode）[必选]
-国内中转VPS（如腾讯云，阿里云等）[可选]
-
-如果不需要将socks5转为http请求的话，就不需要国内中转VPS。
-国外VPS配置[必选]国外VPS当然可以自由访">
+<meta name="description" content="NGINX+LUA实现简单的灰度发布感谢国人agentzh，让我们能够以一种更加简单的方式来控制Nginx。即：使用脚本语言LUA来嵌入到Nginx当中来进行编程。
+我们一期实现的灰度功能比较简单。原理是通过读取用户请求cookie(如uuid)是否在redis的白名单当中，来让用户定向到不同的Web后端机器。
+1234567891011121314151617181920212223242526">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何科学上网">
-<meta property="og:url" content="http://git-patrickliu.github.io/2015/10/06/fuxx-gfw/index.html">
+<meta property="og:title" content="nginx-lua-gray.md">
+<meta property="og:url" content="http://git-patrickliu.github.io/2016/06/11/nginx-lua-gray-md/index.html">
 <meta property="og:site_name" content="patrickliu's blog">
-<meta property="og:description" content="科学上网，真是具有中国特色的一个词汇。德先生我们需要关注，但是赛先生我们更加需要关注。下面介绍一些技术来让大家自由地和国外的赛先生交流。
-想自搭科学上网工具的同学，需要准备以下几个硬作案工具。
-
-国外VPS（如linode）[必选]
-国内中转VPS（如腾讯云，阿里云等）[可选]
-
-如果不需要将socks5转为http请求的话，就不需要国内中转VPS。
-国外VPS配置[必选]国外VPS当然可以自由访">
-<meta property="og:updated_time" content="2015-10-06T13:16:46.000Z">
+<meta property="og:description" content="NGINX+LUA实现简单的灰度发布感谢国人agentzh，让我们能够以一种更加简单的方式来控制Nginx。即：使用脚本语言LUA来嵌入到Nginx当中来进行编程。
+我们一期实现的灰度功能比较简单。原理是通过读取用户请求cookie(如uuid)是否在redis的白名单当中，来让用户定向到不同的Web后端机器。
+1234567891011121314151617181920212223242526">
+<meta property="og:updated_time" content="2016-06-10T23:31:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何科学上网">
-<meta name="twitter:description" content="科学上网，真是具有中国特色的一个词汇。德先生我们需要关注，但是赛先生我们更加需要关注。下面介绍一些技术来让大家自由地和国外的赛先生交流。
-想自搭科学上网工具的同学，需要准备以下几个硬作案工具。
-
-国外VPS（如linode）[必选]
-国内中转VPS（如腾讯云，阿里云等）[可选]
-
-如果不需要将socks5转为http请求的话，就不需要国内中转VPS。
-国外VPS配置[必选]国外VPS当然可以自由访">
+<meta name="twitter:title" content="nginx-lua-gray.md">
+<meta name="twitter:description" content="NGINX+LUA实现简单的灰度发布感谢国人agentzh，让我们能够以一种更加简单的方式来控制Nginx。即：使用脚本语言LUA来嵌入到Nginx当中来进行编程。
+我们一期实现的灰度功能比较简单。原理是通过读取用户请求cookie(如uuid)是否在redis的白名单当中，来让用户定向到不同的Web后端机器。
+1234567891011121314151617181920212223242526">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -79,7 +64,7 @@
   };
 </script>
 
-  <title> 如何科学上网 | patrickliu's blog </title>
+  <title> nginx-lua-gray.md | patrickliu's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -186,7 +171,7 @@
           
           
             
-              如何科学上网
+              nginx-lua-gray.md
             
           
         </h1>
@@ -195,8 +180,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-10-06T07:09:45+08:00" content="2015-10-06">
-            2015-10-06
+          <time itemprop="dateCreated" datetime="2016-06-11T07:28:27+08:00" content="2016-06-11">
+            2016-06-11
           </time>
         </span>
 
@@ -206,8 +191,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/10/06/fuxx-gfw/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/06/fuxx-gfw/" itemprop="commentsCount"></span>
+              <a href="/2016/06/11/nginx-lua-gray-md/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/11/nginx-lua-gray-md/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -221,33 +206,9 @@
       
 
       
-        <span itemprop="articleBody"><p><code>科学上网</code>，真是具有中国特色的一个词汇。德先生我们需要关注，但是赛先生我们更加需要关注。<br>下面介绍一些技术来让大家自由地和国外的赛先生交流。</p>
-<p>想自搭科学上网工具的同学，需要准备以下几个<code>硬</code>作案工具。</p>
-<ol>
-<li>国外VPS（如linode）[必选]</li>
-<li>国内中转VPS（如腾讯云，阿里云等）[可选]</li>
-</ol>
-<p>如果不需要将socks5转为http请求的话，就不需要国内中转VPS。</p>
-<h3 id="国外VPS配置[必选]">国外VPS配置[必选]</h3><p>国外VPS当然可以自由访问国外任何资源。我们要在国外VPS上安装一个Shadowsocks的server端。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure></p>
-<p>pip是安装python的一个命令。如何安装<code>pip</code>，大家可以百度一下。</p>
-<p>在安装完<code>shadowsocks</code>之后，大家启动shadowsocks的server端。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ssserver -p [your-port] -k [your-password] -m rc4-md5 -d start</span><br></pre></td></tr></table></figure></p>
-<p>上面中的[your-port]，[your-password] 大家可以替换成想要的端口号和自定义的密码。后面的rc4-md5，大家可以用这个加密方式，也可以替换成其他的。但是一定要和后面安装的<code>shadowsocks</code>的客户端的加密方式一致。</p>
-<h3 id="国内VPS配置[可选]">国内VPS配置[可选]</h3><p>选配一个国内VPS的作用，就是在国内VPS上安装一个<code>shadowsocks</code>的客户端，并且使用<code>privoxy</code>将socks5转为http协议。这样我们在电脑或手机上使用起来就更加方便了。</p>
-<h4 id="1-_安装shadowsocks_local">1. 安装shadowsocks local</h4><p>同样使用<code>pip</code> 来安装pip。然后再install <code>shadowsocks</code>。不过local的启动方式和server是不一样的。</p>
-<p>配置一个本地的config.json（如果直拷的话，注释需要去掉）<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">        "server": "[server-ip]", // 第1步当中的server-ip</span><br><span class="line">        "server_port": [server-port], // 第1步当中的server-port</span><br><span class="line">        "local_address":"127.0.0.1", //本地映射IP</span><br><span class="line">        "local_port":1080, // 本地映射IP,可填其他值</span><br><span class="line">        "password":"[server-ssserver-password]",// 第1步当中的password</span><br><span class="line">        "timeout":300,</span><br><span class="line">        "method":"rc4-md5", // 第1步当中的设置的加密方式</span><br><span class="line">        "fast_open":false,</span><br><span class="line">        "workers":1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>然后使用sslocal来启动。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sslocal config.json</span><br></pre></td></tr></table></figure></p>
-<p>这样就完成了一个<code>sslocal</code>的启动。</p>
-<h4 id="2-_安装privoxy">2. 安装privoxy</h4><p>这一步，我们继续在国内VPS中进行配置，通过privoxy将socks5转成http协议。大家先安装privoxy。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install privoxy // in CentOS</span><br></pre></td></tr></table></figure></p>
-<p>在安装完<code>privoxy</code>之后，我们编辑<code>/etc/privoxy/config</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">user-manual /usr/share/doc/privoxy/user-manual</span><br><span class="line">confdir /etc/privoxy</span><br><span class="line">logdir /var/log/privoxy</span><br><span class="line">actionsfile match-all.action</span><br><span class="line">actionsfile default.action</span><br><span class="line">actionsfile user.action</span><br><span class="line">filterfile default.filter</span><br><span class="line">filterfile user.filter</span><br><span class="line">logfile logfile</span><br><span class="line">listen-address  :8118  # 转成http之后的监听端口</span><br><span class="line">toggle  1</span><br><span class="line">enable-remote-toggle  0</span><br><span class="line">enable-remote-http-toggle  0</span><br><span class="line">enable-edit-actions 0</span><br><span class="line">enforce-blocks 0</span><br><span class="line">buffer-limit 4096</span><br><span class="line">forwarded-connect-retries  0</span><br><span class="line">accept-intercepted-requests 0</span><br><span class="line">allow-cgi-request-crunching 0</span><br><span class="line">split-large-forms 0</span><br><span class="line">keep-alive-timeout 5</span><br><span class="line">socket-timeout 300</span><br><span class="line">forward-socks5 / 127.0.0.1:1080 .    # 上面sslocal映射的端口</span><br></pre></td></tr></table></figure></p>
-<p>然后使用<code>privoxy</code> 进行启动。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/privoxy --pidfile /var/run/privoxy.pid --user privoxy /etc/privoxy/config</span><br></pre></td></tr></table></figure></p>
-<p>到此为止，就设置了一个国内IP:8118的http代理。只要在电脑当中进行设置就可以进行代理了。再编辑一个pac就可以在手机WIFI网络下进行代理上网了。如何使用pac进行代理，大家可以进行搜索。</p>
-<h3 id="无国内VPS，直连方案">无国内VPS，直连方案</h3><p>要是没有国内VPS，就需要在本地安装shadowsocks了。可以参考 <a href="http://www.jianshu.com/p/8ca5501ce556" target="_blank" rel="external">这里</a>。</p>
-<h3 id="进阶">进阶</h3><p>上面实现了PC端，手机WIFI端的设置。如果需要在手机蜂窝网络下配置的话，需要使用<code>APN</code>技术。</p>
-<p>大家下载<a href="https://support.apple.com/kb/DL1081?locale=zh_CN&amp;viewlocale=zh_CN" target="_blank" rel="external">iPhone配置工具</a>，并且按照中国移动此链接 <a href="http://www.sn.10086.cn/iphone/y12.html" target="_blank" rel="external">http://www.sn.10086.cn/iphone/y12.html</a> 进行配置。需要将其IP和端口，换成第二步中设置的IP:port。就可以实现蜂窝网络下的<code>APN</code>配置。</p>
-<h2 id="参考链接">参考链接</h2><p><a href="http://tingxueren.com/blog/2014/01/10/jian-yi-http-proxy-da-jian/" target="_blank" rel="external">http://tingxueren.com/blog/2014/01/10/jian-yi-http-proxy-da-jian/</a></p>
-<p><a href="http://www.jianshu.com/p/8ca5501ce556" target="_blank" rel="external">http://www.jianshu.com/p/8ca5501ce556</a></p>
-<p><a href="https://www.v2ex.com/t/220006" target="_blank" rel="external">https://www.v2ex.com/t/220006</a></p>
-<p><a href="http://www.sn.10086.cn/iphone/y12.html" target="_blank" rel="external">http://www.sn.10086.cn/iphone/y12.html</a></p>
+        <span itemprop="articleBody"><h3 id="NGINX+LUA实现简单的灰度发布">NGINX+LUA实现简单的灰度发布</h3><p>感谢国人agentzh，让我们能够以一种更加简单的方式来控制Nginx。即：使用脚本语言LUA来嵌入到Nginx当中来进行编程。</p>
+<p>我们一期实现的灰度功能比较简单。原理是通过读取用户请求cookie(如uuid)是否在redis的白名单当中，来让用户定向到不同的Web后端机器。</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- read cookie &amp; set to ctx.clientUID</span></span><br><span class="line"><span class="keyword">local</span> cookieName = ngx.ctx.cookieName</span><br><span class="line"><span class="keyword">local</span> ck = <span class="built_in">require</span> <span class="string">"resty.cookie"</span></span><br><span class="line"><span class="keyword">local</span> cookie, err = ck:new()</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> cookie <span class="keyword">then</span></span><br><span class="line">    <span class="comment">-- new resty.cookie failed</span></span><br><span class="line">    ngx.log(ngx.ERR, <span class="string">"new cookie failed"</span>, err)</span><br><span class="line">    ngx.exec(<span class="string">"@defaultProxy"</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">local</span> field, err = cookie:get(cookieName)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> field <span class="keyword">then</span></span><br><span class="line">    <span class="comment">-- uid is nil</span></span><br><span class="line">    <span class="comment">-- set ngx.ctx.clientUID to nil</span></span><br><span class="line">    ngx.ctx.clientUID = <span class="keyword">nil</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="comment">-- uid is not nil</span></span><br><span class="line"><span class="comment">-- set ngx.ctx to field value</span></span><br><span class="line">    ngx.ctx.clientUID = field</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- query the clientUID in redis and decide which upstream to go</span></span><br><span class="line"><span class="keyword">local</span> clientUID = ngx.ctx.clientUID</span><br><span class="line"><span class="keyword">local</span> redisKey = ngx.ctx.redisKey</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> clientUID <span class="keyword">then</span></span><br><span class="line">    <span class="comment">-- directly upstream to online module</span></span><br><span class="line">    ngx.exec(<span class="string">"@defaultProxy"</span>)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="comment">-- clientUID is not empty</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">putIntoPool</span> <span class="params">(redCon)</span></span></span><br><span class="line">        <span class="keyword">local</span> ok, err = redCon:set_keepalive(<span class="number">10000</span>, <span class="number">100</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> ok <span class="keyword">then</span></span><br><span class="line">            ngx.log(ngx.ERR, <span class="string">"redis set keepalive failed"</span>, err)</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">closeCon</span> <span class="params">(redCon)</span></span></span><br><span class="line">        <span class="keyword">local</span> ok, err = redCon:close()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> ok <span class="keyword">then</span></span><br><span class="line">            ngx.log(ngx.ERR, <span class="string">"close redis connection failed"</span>, err)</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">-- request redis</span></span><br><span class="line">    <span class="keyword">local</span> redis = <span class="built_in">require</span> <span class="string">"resty.redis"</span></span><br><span class="line">    <span class="keyword">local</span> red, err = redis:new()</span><br><span class="line">    red:set_timeout(<span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> red <span class="keyword">then</span></span><br><span class="line">       ngx.log(ngx.ERR, <span class="string">"new redis error"</span>, err)</span><br><span class="line">       ngx.exec(<span class="string">"@defaultProxy"</span>)</span><br><span class="line">       <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">-- redis config</span></span><br><span class="line">    <span class="keyword">local</span> redisIP = ngx.ctx.redisIP</span><br><span class="line">    <span class="keyword">local</span> redisPort = ngx.ctx.redisPort</span><br><span class="line">    <span class="keyword">local</span> ok, err = red:connect(redisIP, redisPort)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> ok <span class="keyword">then</span></span><br><span class="line">       ngx.log(ngx.ERR, <span class="string">"connect redis error"</span>, err)</span><br><span class="line">       ngx.exec(<span class="string">"@defaultProxy"</span>)</span><br><span class="line">       <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="comment">-- red:sismember(redisKey, clientUID)</span></span><br><span class="line">    <span class="comment">-- if return 1, upstream to gray</span></span><br><span class="line">    <span class="comment">-- else if return 0, upstream to online module</span></span><br><span class="line">    <span class="keyword">local</span> isGray, err = red:sismember(redisKey, clientUID)</span><br><span class="line">    <span class="keyword">if</span> isGray ~= <span class="number">1</span> <span class="keyword">then</span></span><br><span class="line">        <span class="comment">-- put into connection pool</span></span><br><span class="line">        putIntoPool(red)</span><br><span class="line"></span><br><span class="line">        <span class="comment">-- not in redis</span></span><br><span class="line">        <span class="keyword">if</span> isGray == <span class="number">0</span> <span class="keyword">then</span></span><br><span class="line">            ngx.log(ngx.ERR, redisKey..<span class="string">" "</span>..clientUID..<span class="string">" is not in gray"</span>)</span><br><span class="line">            ngx.exec(<span class="string">"@defaultProxy"</span>)</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            ngx.log(ngx.ERR, <span class="string">" sismember error "</span>, err)</span><br><span class="line">            ngx.exec(<span class="string">"@defaultProxy"</span>)</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    ngx.log(ngx.ERR, redisKey..<span class="string">" "</span>..clientUID..<span class="string">" is in gray"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">-- put into connection pool</span></span><br><span class="line">    putIntoPool(red)</span><br><span class="line"></span><br><span class="line">    <span class="comment">-- navigate to grayProxy</span></span><br><span class="line">    ngx.exec(<span class="string">"@grayProxy"</span>)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 </span>
       
     </div>
@@ -256,9 +217,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/APN/" rel="tag">#APN</a>
+            <a href="/tags/LUA/" rel="tag">#LUA</a>
           
-            <a href="/tags/科学上网/" rel="tag">#科学上网</a>
+            <a href="/tags/NGINX/" rel="tag">#NGINX</a>
           
         </div>
       
@@ -267,13 +228,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/12/13/float-division/" rel="prev">float-division</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/29/jest-start-up/" rel="next">用jest做单元测试（一)</a>
+              <a href="/2016/06/10/return-button-control/" rel="next">微信内嵌页返回键控制</a>
             
           </div>
         </div>
@@ -298,8 +257,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/10/06/fuxx-gfw/"
-                   data-title="如何科学上网" data-url="http://git-patrickliu.github.io/2015/10/06/fuxx-gfw/">
+              <div class="ds-thread" data-thread-key="2016/06/11/nginx-lua-gray-md/"
+                   data-title="nginx-lua-gray.md" data-url="http://git-patrickliu.github.io/2016/06/11/nginx-lua-gray-md/">
               </div>
             
           </div>
@@ -394,7 +353,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#国外VPS配置[必选]"><span class="nav-number">1.</span> <span class="nav-text">国外VPS配置[必选]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#国内VPS配置[可选]"><span class="nav-number">2.</span> <span class="nav-text">国内VPS配置[可选]</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-_安装shadowsocks_local"><span class="nav-number">2.1.</span> <span class="nav-text">1. 安装shadowsocks local</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-_安装privoxy"><span class="nav-number">2.2.</span> <span class="nav-text">2. 安装privoxy</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无国内VPS，直连方案"><span class="nav-number">3.</span> <span class="nav-text">无国内VPS，直连方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进阶"><span class="nav-number">4.</span> <span class="nav-text">进阶</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number"></span> <span class="nav-text">参考链接</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#NGINX+LUA实现简单的灰度发布"><span class="nav-number">1.</span> <span class="nav-text">NGINX+LUA实现简单的灰度发布</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
