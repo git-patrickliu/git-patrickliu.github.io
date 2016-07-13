@@ -1055,7 +1055,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7c4eff;
+  background: #90ff2a;
 }
 .sidebar-nav {
   margin: 0;
@@ -1291,6 +1291,8 @@ body {
 }
 .posts-expand .post-body {
   text-align: justify;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 .posts-expand .post-body h2,
 .posts-expand .post-body h3,
