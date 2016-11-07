@@ -493,6 +493,13 @@ HttpDNS, 通过http方式向第三方的固定IP方式来获取指定域名的IP
   由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
 </div>
 
+<script>
+    var protocol = window.location.protocol;
+    if(protocol === 'http:') {
+        window.location.href = 'https:' + '//' + window.location.hostname + window.location.pathname + window.location.search;
+    }
+</script>
+
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
