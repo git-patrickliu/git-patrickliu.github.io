@@ -322,8 +322,8 @@
     <link href="http://git-patrickliu.github.io/2015/08/19/Velocity%E5%A4%A7%E4%BC%9A%E6%80%BB%E7%BB%93/"/>
     <id>http://git-patrickliu.github.io/2015/08/19/Velocity大会总结/</id>
     <published>2015-08-19T11:52:16.000Z</published>
-    <updated>2015-09-29T06:59:50.000Z</updated>
-    <content type="html"><![CDATA[<p>关键词：tps优化，前端加载优化，hybrid，APM(application performance monitor）。</p>
+    <updated>2017-04-01T08:31:52.000Z</updated>
+    <content type="html"><![CDATA[<p>关键词：https优化，前端加载优化，hybrid，APM(application performance monitor）。</p>
 <ol>
 <li><p>https优化。</p>
 <blockquote>
@@ -415,12 +415,12 @@
 <p><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0593.JPG" alt="blend UI 1"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0594.JPG" alt="blend UI 2"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0595.JPG" alt="blend UI 3"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0596.JPG" alt="blend UI 4"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0597.JPG" alt="blend UI 5"></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>关键词：tps优化，前端加载优化，hybrid，APM(application performance monitor）。</p>
+    <![CDATA[<p>关键词：https优化，前端加载优化，hybrid，APM(application performance monitor）。</p>
 <ol>
 <li><p>https优化。</p>
 <blockquote>
 <ul>
-<li>HttpDNS, 通过http方式向第三方的固定]]>
+<li>HttpDNS, 通过http方式向第三方的]]>
     </summary>
     
       <category term="velocity" scheme="http://git-patrickliu.github.io/tags/velocity/"/>
