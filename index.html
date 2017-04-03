@@ -167,7 +167,7 @@
           
             
               <a class="post-title-link" href="/2017/04/03/cross-domain-pitfall/" itemprop="url">
-                cross-domain-pitfall
+                跨域调用之iOS safari坑
               </a>
             
           
@@ -206,8 +206,10 @@
         
           <span itemprop="articleBody">
             
-            
-            
+            跨域调用对于前端来说真是老生常谈的一件事情, 最经常使用的场景比如是, 调用第三方支付, 第三方支付成功之后需要将状态再传回到主页面上来.
+跨域调用有好几种方法，在这里我们不讨论。只讨论直接通过调用 top.func 的方式。
+一般情况，我们会在主页面上iframe内嵌第三方web支付的页面，第三方支付在成功之后回调一个我们给他们的中间页面url, 我们的页面再通过top &amp;&amp; top.successCallback() 将成功/失败状态回传给我们的主页面。按说一般都没有问题，但是我们的中间页面因为要给公司里的不同域名的好几个业务公用，所以代码就写成下面这样123456789t
+            ...
           </span>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/04/03/cross-domain-pitfall/#more" rel="contents">
@@ -1024,7 +1026,7 @@ pip是安装python的一个命令。如何安装pip，大家可以百度一
 
           <div class="site-state-item site-state-tags">
             <a href="/tags/">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
