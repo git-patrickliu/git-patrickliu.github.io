@@ -283,8 +283,24 @@
         
           <span itemprop="articleBody">
             
-            
-            
+            前些天，UED的同学制作了公司统一的邮件签名，并手动帮UED的同学全部给制作了一个精美的签名。非常耗时，要给全公司推广就很麻烦了。所以就建议我们能做一个自动生成的页面。
+本着能用JS就绝不用其他语言，能前端就不麻烦后端的思想，我小小预研了一下前端相关的技术。
+
+重构签名图
+
+这个对于前端同学就是小菜菜一碟。
+
+
+将dom转化为一张图片
+
+Drawing Dom To Canvas，可以解决这个问题。因为安全问题，所有的样式和图片都需要内联，这都是小事。样式直接写进style里面，图片转成base64进行内联。
+
+
+将图片下载到本地
+
+
+用canvas将图转成base64传给后台，让后台生成图片
+            ...
           </span>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/04/03/generate-mail-signature-with-pure-fe/#more" rel="contents">
@@ -1019,7 +1035,7 @@ pip是安装python的一个命令。如何安装pip，大家可以百度一
 
           <div class="site-state-item site-state-tags">
             <a href="/tags/">
-              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-count">26</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
