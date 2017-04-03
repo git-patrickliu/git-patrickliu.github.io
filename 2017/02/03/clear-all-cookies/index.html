@@ -47,8 +47,8 @@
 <meta property="og:site_name" content="patrickliu's blog">
 <meta property="og:description" content="cookie对前端的重要性不言而喻，而cookie的错乱会影响用户的功能，甚至可能在cookie失效之前一直用不上我们的页面。在PC时代我们还可能去引导用户在浏览器中主动清除一下缓存和cookie, 但是在手机时代，很多时候我们都不清楚去哪里清除缓存和cookie了。所以做一个通用的清空域下的工具就势在必行了。
 原因都是最近一直在做微信公众号相关的项目，而在iOS下的微信内嵌页的调试真是灾难级别的">
-<meta property="og:image" content="http://onlineimages.dapenggaofei.com/68995c1bc3be99db35aef63579587b93.png">
-<meta property="og:updated_time" content="2017-04-03T06:35:51.000Z">
+<meta property="og:image" content="https://dn-dapenggaofei.qbox.me/68995c1bc3be99db35aef63579587b93.png">
+<meta property="og:updated_time" content="2017-04-03T22:57:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杜绝cookie污染，一键清空域下所有cookie">
 <meta name="twitter:description" content="cookie对前端的重要性不言而喻，而cookie的错乱会影响用户的功能，甚至可能在cookie失效之前一直用不上我们的页面。在PC时代我们还可能去引导用户在浏览器中主动清除一下缓存和cookie, 但是在手机时代，很多时候我们都不清楚去哪里清除缓存和cookie了。所以做一个通用的清空域下的工具就势在必行了。
@@ -226,7 +226,7 @@
 </blockquote>
 </blockquote>
 <p>下面需要的就是在业务的每一个页面下新建一个虚拟页面，如/froadmall/m/home/index/clearCookieVirtual.html， （这个页面可以在Nginx层直接rewrite到一个公用的页面）,这个页面就负责把指定的域名的上面组合都清空就好了。</p>
-<p>在实际操作过程中发现了一个坑，就是以点开头的domain和没有点开头的domain的区别。<br><img src="http://onlineimages.dapenggaofei.com/68995c1bc3be99db35aef63579587b93.png" alt="domain"><br>在设置cookie的时候，如果没有主动指定域名，就会设置成www.52shangchao.com, 表示这个cookie仅对www.52shangchao.com有效，对x.www.52shangchao.com是无效的。 如果主动指定了www.52shangchao.com的域名，在chrome开发工具当中就会显示出.www.52shangchao.com，表示该cookie不仅对www.52shangchao.com有效，还对x.www.52shangchao.com有效。具体可以查看stackoverflow上的讨论 <a href="http://stackoverflow.com/questions/5688491/unable-to-delete-cookie-from-javascript" target="_blank" rel="external">unable-to-delete-cookie-from-javascript</a> &amp;&amp; <a href="http://stackoverflow.com/questions/9618217/what-does-the-dot-prefix-in-the-cookie-domain-mean" target="_blank" rel="external">what-does-the-dot-prefix-in-the-cookie-domain-mean</a>。这样在清除的时候还必须考虑没有指定domain时的这个特殊情况。</p>
+<p>在实际操作过程中发现了一个坑，就是以点开头的domain和没有点开头的domain的区别。<br><img src="https://dn-dapenggaofei.qbox.me/68995c1bc3be99db35aef63579587b93.png" alt="domain"><br>在设置cookie的时候，如果没有主动指定域名，就会设置成www.52shangchao.com, 表示这个cookie仅对www.52shangchao.com有效，对x.www.52shangchao.com是无效的。 如果主动指定了www.52shangchao.com的域名，在chrome开发工具当中就会显示出.www.52shangchao.com，表示该cookie不仅对www.52shangchao.com有效，还对x.www.52shangchao.com有效。具体可以查看stackoverflow上的讨论 <a href="http://stackoverflow.com/questions/5688491/unable-to-delete-cookie-from-javascript" target="_blank" rel="external">unable-to-delete-cookie-from-javascript</a> &amp;&amp; <a href="http://stackoverflow.com/questions/9618217/what-does-the-dot-prefix-in-the-cookie-domain-mean" target="_blank" rel="external">what-does-the-dot-prefix-in-the-cookie-domain-mean</a>。这样在清除的时候还必须考虑没有指定domain时的这个特殊情况。</p>
 <p><a href="http://demo.dapenggaofei.com/clear-all-cookies/example01/clearCookies.html" target="_blank" rel="external">点击查看demo</a></p>
 </span>
       

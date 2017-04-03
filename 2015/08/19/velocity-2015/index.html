@@ -59,17 +59,17 @@ https优化。
 HttpDNS, 通过http方式向第三方的固定IP方式来获取指定域名的IP来进行DNS解析（我们可以考虑在客户端新增HttpDNS）
 启用[HSTS][^HSTS] （我们尚未全站启用https，所以这个不太好启动）
 启用OCSP Staplin">
-<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0612.JPG">
-<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0571.JPG">
-<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0560.JPG">
-<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0585.JPG">
-<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0616.JPG">
-<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0593.JPG">
-<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0594.JPG">
-<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0595.JPG">
-<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0596.JPG">
-<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0597.JPG">
-<meta property="og:updated_time" content="2017-04-03T02:11:46.000Z">
+<meta property="og:image" content="https://o0sjgyj4t.qnssl.com/IMG_0612.JPG">
+<meta property="og:image" content="https://o0sjgyj4t.qnssl.com/IMG_0571.JPG">
+<meta property="og:image" content="https://o0sjgyj4t.qnssl.com/IMG_0560.JPG">
+<meta property="og:image" content="https://o0sjgyj4t.qnssl.com/IMG_0585.JPG">
+<meta property="og:image" content="https://o0sjgyj4t.qnssl.com/IMG_0616.JPG">
+<meta property="og:image" content="https://o0sjgyj4t.qnssl.com/IMG_0593.JPG">
+<meta property="og:image" content="https://o0sjgyj4t.qnssl.com/IMG_0594.JPG">
+<meta property="og:image" content="https://o0sjgyj4t.qnssl.com/IMG_0595.JPG">
+<meta property="og:image" content="https://o0sjgyj4t.qnssl.com/IMG_0596.JPG">
+<meta property="og:image" content="https://o0sjgyj4t.qnssl.com/IMG_0597.JPG">
+<meta property="og:updated_time" content="2017-04-03T22:56:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="velocity-2015">
 <meta name="twitter:description" content="关键词：https优化，前端加载优化，hybrid，APM(application performance monitor）。
@@ -247,14 +247,14 @@ HttpDNS, 通过http方式向第三方的固定IP方式来获取指定域名的IP
 <li>升级openssl版本到最新（我们的版本是openssl-1.0.2c）</li>
 <li>确认TLS压缩禁用（nginx 1.3.x以上版本都自动关闭，不关闭有漏洞，我们nginx是1.6.3）</li>
 <li>确认SNI支持 （已支持，多个证书部署在同一个IP上）</li>
-<li>使用 <strong>//</strong>，来引用静态资源文件，保证http能无缝迁到https环境（我们已经使用了，但是一个360的同僚说在某些地方的移动运营商会将<strong>//</strong> 篡改为 <strong>/</strong>。但是iPhone5s 上海中国移动未发现问题）。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0612.JPG" alt="TLS总结"></li>
+<li>使用 <strong>//</strong>，来引用静态资源文件，保证http能无缝迁到https环境（我们已经使用了，但是一个360的同僚说在某些地方的移动运营商会将<strong>//</strong> 篡改为 <strong>/</strong>。但是iPhone5s 上海中国移动未发现问题）。<br><img src="https://o0sjgyj4t.qnssl.com/IMG_0612.JPG" alt="TLS总结"></li>
 </ul>
 </blockquote>
 </li>
 <li><p>页面直出方法，对比？</p>
 <blockquote>
 <ul>
-<li>nginx + lua 页面直出（京东618采用）<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0571.JPG" alt="nginx + lua"></li>
+<li>nginx + lua 页面直出（京东618采用）<br><img src="https://o0sjgyj4t.qnssl.com/IMG_0571.JPG" alt="nginx + lua"></li>
 <li>ATS （apache traffic server）页面直出（Yahoo采用）</li>
 <li>nodejs直出</li>
 </ul>
@@ -288,9 +288,9 @@ HttpDNS, 通过http方式向第三方的固定IP方式来获取指定域名的IP
 </ol>
 <h4 id="总结：">总结：</h4><h5 id="一些方法论：">一些方法论：</h5><blockquote>
 <ul>
-<li>保持simplicity<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0560.JPG" alt="保持简单"></li>
-<li>build high performance team<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0585.JPG" alt="high performance team"></li>
-<li>优化问题方法论<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0616.JPG" alt="优化步骤"></li>
+<li>保持simplicity<br><img src="https://o0sjgyj4t.qnssl.com/IMG_0560.JPG" alt="保持简单"></li>
+<li>build high performance team<br><img src="https://o0sjgyj4t.qnssl.com/IMG_0585.JPG" alt="high performance team"></li>
+<li>优化问题方法论<br><img src="https://o0sjgyj4t.qnssl.com/IMG_0616.JPG" alt="优化步骤"></li>
 </ul>
 </blockquote>
 <h5 id="我们暂时能够跟进的：">我们暂时能够跟进的：</h5><blockquote>
@@ -320,7 +320,7 @@ HttpDNS, 通过http方式向第三方的固定IP方式来获取指定域名的IP
 </ol>
 <p>[^HSTS]: HTTP Strict Transport Security。我们现在请求http的站点时，会自动跳转到https的页面，其实这一步是存在安全风险的，但是通过HSTS，设置响应头Strict-Transport-Security: max-age=31536000; includeSubDomains，可保证用户即使输入http页面，也在浏览器级别会自动请求https页面，不需要经过服务器跳转。</p>
 <p>[^falsestart]: 查看<a href="http://chimera.labs.oreilly.com/books/1230000000545/ch04.html" target="_blank" rel="external">网址</a>，啥是false start（抢跑）。</p>
-<p><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0593.JPG" alt="blend UI 1"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0594.JPG" alt="blend UI 2"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0595.JPG" alt="blend UI 3"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0596.JPG" alt="blend UI 4"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0597.JPG" alt="blend UI 5"></p>
+<p><img src="https://o0sjgyj4t.qnssl.com/IMG_0593.JPG" alt="blend UI 1"><br><img src="https://o0sjgyj4t.qnssl.com/IMG_0594.JPG" alt="blend UI 2"><br><img src="https://o0sjgyj4t.qnssl.com/IMG_0595.JPG" alt="blend UI 3"><br><img src="https://o0sjgyj4t.qnssl.com/IMG_0596.JPG" alt="blend UI 4"><br><img src="https://o0sjgyj4t.qnssl.com/IMG_0597.JPG" alt="blend UI 5"></p>
 </span>
       
     </div>

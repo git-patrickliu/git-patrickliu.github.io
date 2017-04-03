@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Hi, I'm 0827]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://git-patrickliu.github.io/"/>
-  <updated>2017-04-03T13:40:11.000Z</updated>
+  <updated>2017-04-03T22:57:45.000Z</updated>
   <id>http://git-patrickliu.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://git-patrickliu.github.io/2017/03/31/generate-mail-signature-with-pure-fe/"/>
     <id>http://git-patrickliu.github.io/2017/03/31/generate-mail-signature-with-pure-fe/</id>
     <published>2017-03-31T07:35:52.000Z</published>
-    <updated>2017-04-03T13:40:11.000Z</updated>
+    <updated>2017-04-03T22:57:45.000Z</updated>
     <content type="html"><![CDATA[<p>前些天，UED的同学制作了公司统一的邮件签名，并手动帮UED的同学全部给制作了一个精美的签名。非常耗时，要给全公司推广就很麻烦了。所以就建议我们能做一个自动生成的页面。</p>
 <p>本着能用JS就绝不用其他语言，能前端就不麻烦后端的思想，我小小预研了一下前端相关的技术。</p>
 <ol>
@@ -37,7 +37,7 @@
 <blockquote>
 <ol>
 <li>用canvas将图转成base64传给后台，让后台生成图片。这个依赖后台，暂时不考虑。</li>
-<li>使用A链接的H5的新属性：download属性，可以将canvas的内容下载到本地。<br><img src="http://onlineimages.dapenggaofei.com/d35d927d52952f98c4c591db8d136dae.png" alt="download picture"></li>
+<li>使用A链接的H5的新属性：download属性，可以将canvas的内容下载到本地。<br><img src="https://dn-dapenggaofei.qbox.me/d35d927d52952f98c4c591db8d136dae.png" alt="download picture"></li>
 </ol>
 </blockquote>
 </li>
@@ -65,22 +65,22 @@
     <link href="http://git-patrickliu.github.io/2017/03/17/qiniu-add-to-favourite/"/>
     <id>http://git-patrickliu.github.io/2017/03/17/qiniu-add-to-favourite/</id>
     <published>2017-03-17T05:24:40.000Z</published>
-    <updated>2017-04-03T08:23:16.000Z</updated>
+    <updated>2017-04-03T22:57:45.000Z</updated>
     <content type="html"><![CDATA[<p>嗯。本文的主题是”将世界美景收纳怀中“， 那如何将世界美景收纳怀中呢？在浏览网站看到好的图片的时候，你是右键下载到本地，最后文件塞满了你的本地硬盘然后最终只好全部删除而收场？此时你需要一个网页自动存储图片工具。</p>
 <p>当当当当，”七牛在线存图“工具闪耀登场。这个一个chrome扩展，意思就是只能在chrome浏览器当中使用，<a href="https://chrome.google.com/webstore/detail/%E4%B8%83%E7%89%9B%E5%9C%A8%E7%BA%BF%E5%AD%98%E5%9B%BE/ojgilmgaopbpimndoelnhacamaabdpni" target="_blank" rel="external">【点我下载】</a>。</p>
 <p>七牛在线存图到底有什么功能呢？看看以下操作示意图就知晓了。</p>
 <ol>
 <li>如果不了解七牛是什么？可以先百度之。大家先需要去七牛注册一个账号<a href="https://portal.qiniu.com/signup?code=3lowmdo5c9kya" target="_blank" rel="external">【点我注册】</a>。大家可以在账号里面看到你的Access Token和 Secret Token。</li>
 <li>在七牛当中创建文件空间（bucket），并在”空间设置“–》”域名设置“ 当中可以查看到此空间对应的域名。</li>
-<li><p>在安装完”七牛在线存图“之后，在弹出的options.html，输入第1步和第2步的数据。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/qiniu-intro1.png" alt="七牛在线存图设置"></p>
+<li><p>在安装完”七牛在线存图“之后，在弹出的options.html，输入第1步和第2步的数据。<br><img src="https://o0sjgyj4t.qnssl.com/qiniu-intro1.png" alt="七牛在线存图设置"></p>
 </li>
-<li><p>设置完毕之后，你就可以直接在线存图了。看到心宜的图千万不要放过。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/qiniu-intro.png" alt="在线存图操作"></p>
+<li><p>设置完毕之后，你就可以直接在线存图了。看到心宜的图千万不要放过。<br><img src="https://o0sjgyj4t.qnssl.com/qiniu-intro.png" alt="在线存图操作"></p>
 </li>
 <li><p>存图成功之后，就会弹出新的tab，打开刚才保存的图片了。</p>
 </li>
 <li><p><strong>新增杀手级功能</strong>, 点击在chrome扩展区域的”存”的ICON, 会展示出:</p>
 <blockquote>
-<p><img src="http://onlineimages.dapenggaofei.com/59201c291ee04cfa4a93d32c6f7afe06.png" alt="ctrl+v上传"></p>
+<p><img src="https://dn-dapenggaofei.qbox.me/59201c291ee04cfa4a93d32c6f7afe06.png" alt="ctrl+v上传"></p>
 </blockquote>
 </li>
 </ol>
@@ -184,7 +184,7 @@
     <link href="http://git-patrickliu.github.io/2017/02/03/clear-all-cookies/"/>
     <id>http://git-patrickliu.github.io/2017/02/03/clear-all-cookies/</id>
     <published>2017-02-03T02:13:03.000Z</published>
-    <updated>2017-04-03T06:35:51.000Z</updated>
+    <updated>2017-04-03T22:57:45.000Z</updated>
     <content type="html"><![CDATA[<p>cookie对前端的重要性不言而喻，而cookie的错乱会影响用户的功能，甚至可能在cookie失效之前一直用不上我们的页面。在PC时代我们还可能去引导用户在浏览器中主动清除一下缓存和cookie, 但是在手机时代，很多时候我们都不清楚去哪里清除缓存和cookie了。所以做一个通用的清空域下的工具就势在必行了。</p>
 <p>原因都是最近一直在做微信公众号相关的项目，而在iOS下的微信内嵌页的调试真是灾难级别的。最近就碰到了一件事情，就是测试同学打开微信公众号里我们的内嵌页一直重复授权。原因就是后台设置了正常的登录态，但是微信内嵌页传到服务器的登录态都是空的。导致一直重复授权失败。</p>
 <p>这个原因很简单，就是后台在某一次设置登录态（后来也证明确实存在）的时候，设置错了登录态cookie的路径和域名。比如说，我们一般都设置在根域下(52shangchao.com)的，path=/下面。但是某一次设置在了二级域(mp.52shangchao.com)下, path=某一个路径(/froadmall/m/xxxxxx)下面。这样每次访问对应的那个页面，上送的登录态的cookie都有两个值，但是他们的优化级是不一样的。一般情况下更具体的domain+path会具有更高的优先级。这样错设的cookie就有更高的优化级，导致每一次后台校验登录态都是失效的。对于这个问题的处理很简单只要把后台错设的那个cookie值删除就好了。那其实有更多场景我们不知道用户的域下被错设的cookie的pathname和domain是多少。导致我们不能正确删除该cookie值。只能说浏览器还没有提供一个方法可以一次性清除域下的所有cookie。</p>
@@ -207,7 +207,7 @@
 </blockquote>
 </blockquote>
 <p>下面需要的就是在业务的每一个页面下新建一个虚拟页面，如/froadmall/m/home/index/clearCookieVirtual.html， （这个页面可以在Nginx层直接rewrite到一个公用的页面）,这个页面就负责把指定的域名的上面组合都清空就好了。</p>
-<p>在实际操作过程中发现了一个坑，就是以点开头的domain和没有点开头的domain的区别。<br><img src="http://onlineimages.dapenggaofei.com/68995c1bc3be99db35aef63579587b93.png" alt="domain"><br>在设置cookie的时候，如果没有主动指定域名，就会设置成www.52shangchao.com, 表示这个cookie仅对www.52shangchao.com有效，对x.www.52shangchao.com是无效的。 如果主动指定了www.52shangchao.com的域名，在chrome开发工具当中就会显示出.www.52shangchao.com，表示该cookie不仅对www.52shangchao.com有效，还对x.www.52shangchao.com有效。具体可以查看stackoverflow上的讨论 <a href="http://stackoverflow.com/questions/5688491/unable-to-delete-cookie-from-javascript" target="_blank" rel="external">unable-to-delete-cookie-from-javascript</a> &amp;&amp; <a href="http://stackoverflow.com/questions/9618217/what-does-the-dot-prefix-in-the-cookie-domain-mean" target="_blank" rel="external">what-does-the-dot-prefix-in-the-cookie-domain-mean</a>。这样在清除的时候还必须考虑没有指定domain时的这个特殊情况。</p>
+<p>在实际操作过程中发现了一个坑，就是以点开头的domain和没有点开头的domain的区别。<br><img src="https://dn-dapenggaofei.qbox.me/68995c1bc3be99db35aef63579587b93.png" alt="domain"><br>在设置cookie的时候，如果没有主动指定域名，就会设置成www.52shangchao.com, 表示这个cookie仅对www.52shangchao.com有效，对x.www.52shangchao.com是无效的。 如果主动指定了www.52shangchao.com的域名，在chrome开发工具当中就会显示出.www.52shangchao.com，表示该cookie不仅对www.52shangchao.com有效，还对x.www.52shangchao.com有效。具体可以查看stackoverflow上的讨论 <a href="http://stackoverflow.com/questions/5688491/unable-to-delete-cookie-from-javascript" target="_blank" rel="external">unable-to-delete-cookie-from-javascript</a> &amp;&amp; <a href="http://stackoverflow.com/questions/9618217/what-does-the-dot-prefix-in-the-cookie-domain-mean" target="_blank" rel="external">what-does-the-dot-prefix-in-the-cookie-domain-mean</a>。这样在清除的时候还必须考虑没有指定domain时的这个特殊情况。</p>
 <p><a href="http://demo.dapenggaofei.com/clear-all-cookies/example01/clearCookies.html" target="_blank" rel="external">点击查看demo</a></p>
 ]]></content>
     <summary type="html">
@@ -269,10 +269,10 @@
     <link href="http://git-patrickliu.github.io/2015/12/13/float-calculation/"/>
     <id>http://git-patrickliu.github.io/2015/12/13/float-calculation/</id>
     <published>2015-12-13T10:37:29.000Z</published>
-    <updated>2017-04-03T13:46:24.000Z</updated>
+    <updated>2017-04-03T22:57:45.000Z</updated>
     <content type="html"><![CDATA[<p><a href="http://ppt.dapenggaofei.com/md/float.md" target="_blank" rel="external">查看ppt</a></p>
 <p>话说某天一个同事问我，为啥在JS里面 <strong>0.2+0.4</strong>，结果不是<strong>0.6</strong>。我想这个问题随便问一个人，都可以得出结果就是<strong>0.6</strong>， 而JS计算之后的结果是：</p>
-<p><img src="http://onlineimages.dapenggaofei.com/ff2efb5a2f58b399125a02c805e3b560.png" alt="0.2+0.4 result"></p>
+<p><img src="https://dn-dapenggaofei.qbox.me/ff2efb5a2f58b399125a02c805e3b560.png" alt="0.2+0.4 result"></p>
 <p>下面我们来回忆一下学习过的计算机组成原理相关的知识。一步一步来揭示这个问题的真相。</p>
 <h3 id="浮点数的表示">浮点数的表示</h3><p>先介绍一下在计算机中表示数字的三种表示方法：<a href="http://baike.baidu.com/view/60480.htm" target="_blank" rel="external">原码</a>，<a href="http://baike.baidu.com/view/742694.htm" target="_blank" rel="external">反码</a>和<a href="http://baike.baidu.com/link?url=OeFyHF5lRc_3X8oaLrMYQZIJwtgbSlbq4u5fgXwWvYmUl8DY6LARZ0NvnxJakDjN8HFqtjoHXz0pSWVvkE_OPa" target="_blank" rel="external">补码</a></p>
 <h4 id="1-_原码">1. 原码</h4><p>原码是计算机中对数字的二进制的定点表示方法。</p>
@@ -412,12 +412,12 @@
     <link href="http://git-patrickliu.github.io/2015/09/27/qiniu-remote-upload-api/"/>
     <id>http://git-patrickliu.github.io/2015/09/27/qiniu-remote-upload-api/</id>
     <published>2015-09-27T08:03:10.000Z</published>
-    <updated>2015-09-29T06:50:25.000Z</updated>
+    <updated>2017-04-03T22:56:00.000Z</updated>
     <content type="html"><![CDATA[<p><a href="http://blog.dapenggaofei.com/2015/09/17/qiniu-add-to-favourite/" target="_blank" rel="external">上一篇</a> 文章我们讲到了利用七牛API来实现直接在网页上爬图的功能。主要是用到了下面两个API，在官方文档也找了大半天，没找到一个真正能用的例子，这里就将官方例子丰富一下，以便下次使用的时候能查到。</p>
 <h3 id="1-_base64上传">1. base64上传</h3><p>刚开始有做这个chrome扩展的时候，最初就是想着七牛有没有提供base64上传的功能。这样的话，就可以直接将这个功能搞定了，现在想想当时还是太naive。在七牛文档也没搜到base64上传的API，倒是直接在百度搜索的时候搜到了。<a href="http://kb.qiniu.com/5rroxdgb" target="_blank" rel="external">前往七牛查看API</a>。发现竟然在知识库，而不在开发者文档专区，也是奇怪。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">putb64</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> pic = <span class="string">"填写你的base64后的字符串"</span>; <span class="comment">// 这里有一个坑，请除去MIME和base64以及逗号</span></span><br><span class="line">    <span class="keyword">var</span> url = <span class="string">"http://up.qiniu.com/putb64/20264"</span>; <span class="comment">//如果不想计算文件大小，可以改成http://up.qiniu.com/putb64/-1</span></span><br><span class="line">    <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    xhr.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (xhr.readyState==<span class="number">4</span>)&#123;</span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">"myDiv"</span>).innerHTML=xhr.responseText;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    xhr.open(<span class="string">"POST"</span>, url, <span class="literal">true</span>);</span><br><span class="line">    xhr.setRequestHeader(<span class="string">"Content-Type"</span>, <span class="string">"application/octet-stream"</span>);</span><br><span class="line">    xhr.setRequestHeader(<span class="string">"Authorization"</span>, <span class="string">"UpToken  填写你从服务端获取的上传token"</span>); <span class="comment">//UpToken其实有挺多问题</span></span><br><span class="line">    xhr.send(pic);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>上面是官方给的JS示例，注释是我加的。有着以下几个问题：</p>
 <ol>
-<li><p>传的pic的值，一定要是base64之后去掉MIME前面几个字符，以及base64加逗号那几个字符才是正常传的值。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/qiniu-remote-upload-1.png?v=1" alt="base64字符串"></p>
+<li><p>传的pic的值，一定要是base64之后去掉MIME前面几个字符，以及base64加逗号那几个字符才是正常传的值。<br><img src="https://o0sjgyj4t.qnssl.com/qiniu-remote-upload-1.png?v=1" alt="base64字符串"></p>
 </li>
 <li><p>如果不想算大小的话，比如我，直接在url当中改成-1。</p>
 </li>
@@ -451,7 +451,7 @@
     <link href="http://git-patrickliu.github.io/2015/09/04/access-in-oneapm/"/>
     <id>http://git-patrickliu.github.io/2015/09/04/access-in-oneapm/</id>
     <published>2015-09-04T14:07:51.000Z</published>
-    <updated>2015-09-29T06:44:58.000Z</updated>
+    <updated>2017-04-03T22:56:00.000Z</updated>
     <content type="html"><![CDATA[<p>先用一组数据来开始整篇文章吧。</p>
 <ol>
 <li>如果亚马逊页面加载每慢100ms，将影响他们1%的收入。</li>
@@ -464,14 +464,14 @@
 <h3 id="OneAPM_提供了两种前端监测代码注入方式。">OneAPM 提供了两种前端监测代码注入方式。</h3><p>一种是用户手动在html当中插入script，一种是通过用户部署后台agent自动插入script。</p>
 <p>我想说，大家都习惯了用google分析，百度分析，腾讯分析等等，对在页面当中插入一段受信任方的JS并没有多大的反感。所以我开始试用就是采用了第一种方式，方便快捷，并且对代码影响是最小的。有某些APM工具，只支持上面的第二种，门槛略高，要想用一下还得改后台代码，还是挺麻烦了。</p>
 <h3 id="OneAPM_提供了非常丰富的展现维度">OneAPM 提供了非常丰富的展现维度</h3><p>大家可以去<a href="http://www.oneapm.com" target="_blank" rel="external">OneAPM</a>上看一下，展现的<code>维度</code>是相当的丰富。</p>
-<p><img src="http://7xkybo.com1.z0.glb.clouddn.com/oneapm1.png" alt="OneAPM sidebar "><br>OneAPM并不只是提供简单的浏览器performance的上报，而是对其进行了一定的归纳，将其归为，白屏时间、首屏时间、H5启动时间和网页就绪时间（这样挺好，但是我觉得如果也能同时展示出原始的performance信息，对专业调优的前端会更友好一些）。</p>
+<p><img src="https://o0sjgyj4t.qnssl.com/oneapm1.png" alt="OneAPM sidebar "><br>OneAPM并不只是提供简单的浏览器performance的上报，而是对其进行了一定的归纳，将其归为，白屏时间、首屏时间、H5启动时间和网页就绪时间（这样挺好，但是我觉得如果也能同时展示出原始的performance信息，对专业调优的前端会更友好一些）。</p>
 <p>还支持<code>浏览器</code>, <code>运营商</code>, <code>地理</code> 三个围度的加载情况查看。提供了慢事务追踪，静态文件加载瀑布流。</p>
-<p><img src="http://7xkybo.com1.z0.glb.clouddn.com/oneapm2.png" alt="总览"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/oneapm3.png" alt="瀑布流"></p>
+<p><img src="https://o0sjgyj4t.qnssl.com/oneapm2.png" alt="总览"><br><img src="https://o0sjgyj4t.qnssl.com/oneapm3.png" alt="瀑布流"></p>
 <p>其实上面2点，是我们最初想要的功能。能提供我们就已经很开心了。后面的几个额外功能更加让我们确信要使用OneAPM了。</p>
-<h3 id="Ajax耗时功能">Ajax耗时功能</h3><p>这是一个非常好用的功能。相信后台艰苦卓绝的将后台CGI响应减少了10ms，但是前端一不小心就多了100ms，甚至大几百ms。所以前端AJAX测速同样是非常重要的。我们可以在这查看到哪一些CGI的速度慢，可以进行专项优化。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/oneapm4.png" alt="Ajax耗时检测"></p>
-<h3 id="脚本错误功能">脚本错误功能</h3><p>这个功能不得不赞一下，因为他让我们发现了不少内嵌APP页面的错误。开发过mobile APP内嵌页的同学们都知道，移动端的调试非常麻烦，而移动端的错误就更加难以捕捉。有了这个功能，我们可以迅速知道我们线上页面的健康度（尤其是线上出现重大BUG，突发某一些错误时）。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/oneapm5.png" alt="脚本错误展示"></p>
-<h3 id="HTTPS!!!">HTTPS!!!</h3><p>其实这个最重要。。因为如果不支持HTTPS的话，我们就直接bye bye走人了。因为我们的页面对安全要求比较高，是全站HTTPS的。而OneAPM是HTTP和HTTPS都支持的。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/oneapm6.png" alt="认准双斜杠"></p>
-<h3 id="强大的技术支持">强大的技术支持</h3><p>我只是在试用阶段，北京的OneAPM同学就直接拉了一个群，非常热心地解决我的各种试用问题，和解答各种技术上的疑惑。企业产品和个人产品不一样，企业产品最重要的是要用得放心，舒心。对于我来说，OneAPM做到了。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/oneapm7.png" alt="技术支持"></p>
+<h3 id="Ajax耗时功能">Ajax耗时功能</h3><p>这是一个非常好用的功能。相信后台艰苦卓绝的将后台CGI响应减少了10ms，但是前端一不小心就多了100ms，甚至大几百ms。所以前端AJAX测速同样是非常重要的。我们可以在这查看到哪一些CGI的速度慢，可以进行专项优化。<br><img src="https://o0sjgyj4t.qnssl.com/oneapm4.png" alt="Ajax耗时检测"></p>
+<h3 id="脚本错误功能">脚本错误功能</h3><p>这个功能不得不赞一下，因为他让我们发现了不少内嵌APP页面的错误。开发过mobile APP内嵌页的同学们都知道，移动端的调试非常麻烦，而移动端的错误就更加难以捕捉。有了这个功能，我们可以迅速知道我们线上页面的健康度（尤其是线上出现重大BUG，突发某一些错误时）。<br><img src="https://o0sjgyj4t.qnssl.com/oneapm5.png" alt="脚本错误展示"></p>
+<h3 id="HTTPS!!!">HTTPS!!!</h3><p>其实这个最重要。。因为如果不支持HTTPS的话，我们就直接bye bye走人了。因为我们的页面对安全要求比较高，是全站HTTPS的。而OneAPM是HTTP和HTTPS都支持的。<br><img src="https://o0sjgyj4t.qnssl.com/oneapm6.png" alt="认准双斜杠"></p>
+<h3 id="强大的技术支持">强大的技术支持</h3><p>我只是在试用阶段，北京的OneAPM同学就直接拉了一个群，非常热心地解决我的各种试用问题，和解答各种技术上的疑惑。企业产品和个人产品不一样，企业产品最重要的是要用得放心，舒心。对于我来说，OneAPM做到了。<br><img src="https://o0sjgyj4t.qnssl.com/oneapm7.png" alt="技术支持"></p>
 <p>综上，有了详细的用户加载时间，我们才能进行下一步的专项优化。</p>
 <p>PS: 当然有要吐槽的：</p>
 <ol>
@@ -525,7 +525,7 @@
     <link href="http://git-patrickliu.github.io/2015/08/19/velocity-2015/"/>
     <id>http://git-patrickliu.github.io/2015/08/19/velocity-2015/</id>
     <published>2015-08-19T11:52:16.000Z</published>
-    <updated>2017-04-03T02:11:46.000Z</updated>
+    <updated>2017-04-03T22:56:00.000Z</updated>
     <content type="html"><![CDATA[<p>关键词：https优化，前端加载优化，hybrid，APM(application performance monitor）。</p>
 <ol>
 <li><p>https优化。</p>
@@ -542,14 +542,14 @@
 <li>升级openssl版本到最新（我们的版本是openssl-1.0.2c）</li>
 <li>确认TLS压缩禁用（nginx 1.3.x以上版本都自动关闭，不关闭有漏洞，我们nginx是1.6.3）</li>
 <li>确认SNI支持 （已支持，多个证书部署在同一个IP上）</li>
-<li>使用 <strong>//</strong>，来引用静态资源文件，保证http能无缝迁到https环境（我们已经使用了，但是一个360的同僚说在某些地方的移动运营商会将<strong>//</strong> 篡改为 <strong>/</strong>。但是iPhone5s 上海中国移动未发现问题）。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0612.JPG" alt="TLS总结"></li>
+<li>使用 <strong>//</strong>，来引用静态资源文件，保证http能无缝迁到https环境（我们已经使用了，但是一个360的同僚说在某些地方的移动运营商会将<strong>//</strong> 篡改为 <strong>/</strong>。但是iPhone5s 上海中国移动未发现问题）。<br><img src="https://o0sjgyj4t.qnssl.com/IMG_0612.JPG" alt="TLS总结"></li>
 </ul>
 </blockquote>
 </li>
 <li><p>页面直出方法，对比？</p>
 <blockquote>
 <ul>
-<li>nginx + lua 页面直出（京东618采用）<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0571.JPG" alt="nginx + lua"></li>
+<li>nginx + lua 页面直出（京东618采用）<br><img src="https://o0sjgyj4t.qnssl.com/IMG_0571.JPG" alt="nginx + lua"></li>
 <li>ATS （apache traffic server）页面直出（Yahoo采用）</li>
 <li>nodejs直出</li>
 </ul>
@@ -583,9 +583,9 @@
 </ol>
 <h4 id="总结：">总结：</h4><h5 id="一些方法论：">一些方法论：</h5><blockquote>
 <ul>
-<li>保持simplicity<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0560.JPG" alt="保持简单"></li>
-<li>build high performance team<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0585.JPG" alt="high performance team"></li>
-<li>优化问题方法论<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0616.JPG" alt="优化步骤"></li>
+<li>保持simplicity<br><img src="https://o0sjgyj4t.qnssl.com/IMG_0560.JPG" alt="保持简单"></li>
+<li>build high performance team<br><img src="https://o0sjgyj4t.qnssl.com/IMG_0585.JPG" alt="high performance team"></li>
+<li>优化问题方法论<br><img src="https://o0sjgyj4t.qnssl.com/IMG_0616.JPG" alt="优化步骤"></li>
 </ul>
 </blockquote>
 <h5 id="我们暂时能够跟进的：">我们暂时能够跟进的：</h5><blockquote>
@@ -615,7 +615,7 @@
 </ol>
 <p>[^HSTS]: HTTP Strict Transport Security。我们现在请求http的站点时，会自动跳转到https的页面，其实这一步是存在安全风险的，但是通过HSTS，设置响应头Strict-Transport-Security: max-age=31536000; includeSubDomains，可保证用户即使输入http页面，也在浏览器级别会自动请求https页面，不需要经过服务器跳转。</p>
 <p>[^falsestart]: 查看<a href="http://chimera.labs.oreilly.com/books/1230000000545/ch04.html" target="_blank" rel="external">网址</a>，啥是false start（抢跑）。</p>
-<p><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0593.JPG" alt="blend UI 1"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0594.JPG" alt="blend UI 2"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0595.JPG" alt="blend UI 3"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0596.JPG" alt="blend UI 4"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0597.JPG" alt="blend UI 5"></p>
+<p><img src="https://o0sjgyj4t.qnssl.com/IMG_0593.JPG" alt="blend UI 1"><br><img src="https://o0sjgyj4t.qnssl.com/IMG_0594.JPG" alt="blend UI 2"><br><img src="https://o0sjgyj4t.qnssl.com/IMG_0595.JPG" alt="blend UI 3"><br><img src="https://o0sjgyj4t.qnssl.com/IMG_0596.JPG" alt="blend UI 4"><br><img src="https://o0sjgyj4t.qnssl.com/IMG_0597.JPG" alt="blend UI 5"></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>关键词：https优化，前端加载优化，hybrid，APM(application performance monitor）。</p>
