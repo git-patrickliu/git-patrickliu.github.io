@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="微信内嵌页,返回键控制," />
+  <meta name="keywords" content="Chrome扩展,七牛," />
 
 
 
@@ -39,22 +39,31 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
 
 
-<meta name="description" content="最近我们组一直在做微信公众号相关的产品。在开发过程中，大家对于微信的返回键有着愈来愈多的不满，进而想从技术层面对它进行控制（比如，注册成功页，点击返回不是回到注册页面，而是希望进入用户个人中心页）。
-当然直接像原生App一样控制这个返回键是不可能的，因为微信没有开放返回键的JS SDK接口。和同事讨论了一下，决定从H5的history API作为切入点来进行控制。
-一、api介绍我们知道H5的hi">
+<meta name="description" content="嗯。本文的主题是”将世界美景收纳怀中“， 那如何将世界美景收纳怀中呢？在浏览网站看到好的图片的时候，你是右键下载到本地，最后文件塞满了你的本地硬盘然后最终只好全部删除而收场？此时你需要一个网页自动存储图片工具。
+当当当当，”七牛在线存图“工具闪耀登场。这个一个chrome扩展，意思就是只能在chrome浏览器当中使用，【点我下载】。
+七牛在线存图到底有什么功能呢？看看以下操作示意图就知晓了。
+
+如">
 <meta property="og:type" content="article">
-<meta property="og:title" content="微信内嵌页返回键控制">
-<meta property="og:url" content="http://git-patrickliu.github.io/2017/02/10/wechat-return-button-control/index.html">
+<meta property="og:title" content="将世界美景收纳怀中">
+<meta property="og:url" content="http://git-patrickliu.github.io/2016/03/17/qiniu-add-to-favourite/index.html">
 <meta property="og:site_name" content="patrickliu's blog">
-<meta property="og:description" content="最近我们组一直在做微信公众号相关的产品。在开发过程中，大家对于微信的返回键有着愈来愈多的不满，进而想从技术层面对它进行控制（比如，注册成功页，点击返回不是回到注册页面，而是希望进入用户个人中心页）。
-当然直接像原生App一样控制这个返回键是不可能的，因为微信没有开放返回键的JS SDK接口。和同事讨论了一下，决定从H5的history API作为切入点来进行控制。
-一、api介绍我们知道H5的hi">
-<meta property="og:updated_time" content="2017-04-03T06:33:51.000Z">
+<meta property="og:description" content="嗯。本文的主题是”将世界美景收纳怀中“， 那如何将世界美景收纳怀中呢？在浏览网站看到好的图片的时候，你是右键下载到本地，最后文件塞满了你的本地硬盘然后最终只好全部删除而收场？此时你需要一个网页自动存储图片工具。
+当当当当，”七牛在线存图“工具闪耀登场。这个一个chrome扩展，意思就是只能在chrome浏览器当中使用，【点我下载】。
+七牛在线存图到底有什么功能呢？看看以下操作示意图就知晓了。
+
+如">
+<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/qiniu-intro1.png">
+<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/qiniu-intro.png">
+<meta property="og:image" content="http://onlineimages.dapenggaofei.com/59201c291ee04cfa4a93d32c6f7afe06.png">
+<meta property="og:updated_time" content="2017-04-03T08:12:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="微信内嵌页返回键控制">
-<meta name="twitter:description" content="最近我们组一直在做微信公众号相关的产品。在开发过程中，大家对于微信的返回键有着愈来愈多的不满，进而想从技术层面对它进行控制（比如，注册成功页，点击返回不是回到注册页面，而是希望进入用户个人中心页）。
-当然直接像原生App一样控制这个返回键是不可能的，因为微信没有开放返回键的JS SDK接口。和同事讨论了一下，决定从H5的history API作为切入点来进行控制。
-一、api介绍我们知道H5的hi">
+<meta name="twitter:title" content="将世界美景收纳怀中">
+<meta name="twitter:description" content="嗯。本文的主题是”将世界美景收纳怀中“， 那如何将世界美景收纳怀中呢？在浏览网站看到好的图片的时候，你是右键下载到本地，最后文件塞满了你的本地硬盘然后最终只好全部删除而收场？此时你需要一个网页自动存储图片工具。
+当当当当，”七牛在线存图“工具闪耀登场。这个一个chrome扩展，意思就是只能在chrome浏览器当中使用，【点我下载】。
+七牛在线存图到底有什么功能呢？看看以下操作示意图就知晓了。
+
+如">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -64,7 +73,7 @@
   };
 </script>
 
-  <title> 微信内嵌页返回键控制 | patrickliu's blog </title>
+  <title> 将世界美景收纳怀中 | patrickliu's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -171,7 +180,7 @@
           
           
             
-              微信内嵌页返回键控制
+              将世界美景收纳怀中
             
           
         </h1>
@@ -180,8 +189,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2017-02-10T18:26:06+08:00" content="2017-02-10">
-            2017-02-10
+          <time itemprop="dateCreated" datetime="2016-03-17T13:24:40+08:00" content="2016-03-17">
+            2016-03-17
           </time>
         </span>
 
@@ -191,8 +200,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2017/02/10/wechat-return-button-control/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/10/wechat-return-button-control/" itemprop="commentsCount"></span>
+              <a href="/2016/03/17/qiniu-add-to-favourite/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/17/qiniu-add-to-favourite/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -206,41 +215,28 @@
       
 
       
-        <span itemprop="articleBody"><p>最近我们组一直在做微信公众号相关的产品。在开发过程中，大家对于微信的返回键有着愈来愈多的不满，进而想从技术层面对它进行控制（比如，注册成功页，点击返回不是回到注册页面，而是希望进入用户个人中心页）。</p>
-<p>当然直接像原生App一样控制这个返回键是不可能的，因为微信没有开放返回键的JS SDK接口。和同事讨论了一下，决定从H5的history API作为切入点来进行控制。</p>
-<h3 id="一、api介绍">一、api介绍</h3><p>我们知道H5的history API新增了以下三个方法:</p>
+        <span itemprop="articleBody"><p>嗯。本文的主题是”将世界美景收纳怀中“， 那如何将世界美景收纳怀中呢？在浏览网站看到好的图片的时候，你是右键下载到本地，最后文件塞满了你的本地硬盘然后最终只好全部删除而收场？此时你需要一个网页自动存储图片工具。</p>
+<p>当当当当，”七牛在线存图“工具闪耀登场。这个一个chrome扩展，意思就是只能在chrome浏览器当中使用，<a href="https://chrome.google.com/webstore/detail/%E4%B8%83%E7%89%9B%E5%9C%A8%E7%BA%BF%E5%AD%98%E5%9B%BE/ojgilmgaopbpimndoelnhacamaabdpni" target="_blank" rel="external">【点我下载】</a>。</p>
+<p>七牛在线存图到底有什么功能呢？看看以下操作示意图就知晓了。</p>
 <ol>
-<li>pushState</li>
-<li>replaceState</li>
-<li>onpopState</li>
-</ol>
-<p>下面我们分别对这三个方法进行说明。</p>
-<ol>
-<li>pushState. <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> stateObj = &#123; foo: <span class="string">"bar"</span> &#125;;</span><br><span class="line">history.pushState(stateObj, <span class="string">"page 2"</span>, <span class="string">"bar.html"</span>);</span><br></pre></td></tr></table></figure>
+<li>如果不了解七牛是什么？可以先百度之。大家先需要去七牛注册一个账号<a href="https://portal.qiniu.com/signup?code=3lowmdo5c9kya" target="_blank" rel="external">【点我注册】</a>。大家可以在账号里面看到你的Access Token和 Secret Token。</li>
+<li>在七牛当中创建文件空间（bucket），并在”空间设置“–》”域名设置“ 当中可以查看到此空间对应的域名。</li>
+<li><p>在安装完”七牛在线存图“之后，在弹出的options.html，输入第1步和第2步的数据。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/qiniu-intro1.png" alt="七牛在线存图设置"></p>
 </li>
-</ol>
-<p>假设当前页面url为/foo.html, 执行此方法之后，页面的url会变成/bar.html, 但是页面没有刷新，和之前页面完成一样，页面url却变了， stateObj是用于用户触发popState之后，传给页面使用的数据。”page 2”是设置的页面title。<br>pushState给history的栈里面push了一个新的项。用户点击返回，会返回到foo.html。</p>
-<ol>
-<li>replaceState<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> stateObj = &#123; foo: <span class="string">"bar"</span> &#125;;</span><br><span class="line">history.replaceState(stateObj, <span class="string">"page 2"</span>, <span class="string">"bar.html"</span>);</span><br></pre></td></tr></table></figure>
+<li><p>设置完毕之后，你就可以直接在线存图了。看到心宜的图千万不要放过。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/qiniu-intro.png" alt="在线存图操作"></p>
 </li>
-</ol>
-<p>执行此方法之后，页面的url也会变成/bar.html, 和上面不同的是，bar.html替换掉了foo.html, 点击返回不是返回foo.html, 而是返回到foo.html之前的页面。这个replaceState有什么作用呢？我经常使用的场景是这样的：把一个有多tab的页面做成一个单页，但是用户点击不同的tab，我会使用replaceState来修改页面的请求参数值，这样保证用户在其他tab刷新之后，也是定位到当前的tab，而不是每一次刷新都会到第一个tab。当然这个要和后台一起合作，当tab＝X的时候，就返回X对应的数据。</p>
-<ol>
-<li>onpopstate<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"popstate"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> state = e.state,</span><br><span class="line">        url = state &amp;&amp; state.url;</span><br><span class="line">    <span class="comment">/* do something here */</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<li><p>存图成功之后，就会弹出新的tab，打开刚才保存的图片了。</p>
 </li>
-</ol>
-<p>MDN上面是这么描述popstate的。</p>
+<li><p><strong>新增杀手级功能</strong>, 点击在chrome扩展区域的”存”的ICON, 会展示出:</p>
 <blockquote>
-<p>The popstate event is fired when the active history entry changes. If the history entry being activated was created by a call to history.pushState() or was affected by a call to history.replaceState(), the popstate event’s state property contains a copy of the history entry’s state object.</p>
+<p><img src="http://onlineimages.dapenggaofei.com/59201c291ee04cfa4a93d32c6f7afe06.png" alt="ctrl+v上传"></p>
 </blockquote>
-<p>也就是说并不是每一次返回都会触发popstate，只有由pushState或是replaceState创建的history entry才会触发这个事件。这一点是需要特别注意的。</p>
-<h3 id="二、解决方法">二、解决方法</h3><p>在了解完api之后，我们封装了一个统一方法backURL来统一控制微信的history的返回。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">backURL</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!url) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> currentUrl = <span class="built_in">window</span>.location.href;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">window</span>.history.replaceState(&#123;</span><br><span class="line">        url: url</span><br><span class="line">    &#125;, <span class="string">''</span>, url);</span><br><span class="line">    <span class="built_in">window</span>.history.pushState(&#123;&#125;, <span class="string">''</span>, currentUrl);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"popstate"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> state = e.state,</span><br><span class="line">        url = state &amp;&amp; state.url;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!url) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">window</span>.location.href = url;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>在需要指定返回的时候，只需要调用backURL的方法，就能保证点击微信的系统返回键，会返回到指定的页面。</p>
-<p>比如：用户当前在index1.html, 正常点击进入index2.html, 然后我们希望用户在点击返回的时候, 能够返回到index3.html，我们在index2.html中调用了backURL(‘index3.html’), 此时history中的栈信息为<br><strong>[‘index1.html’, ‘index3.html’, ‘index2.html’]</strong>。</p>
-<p>这样用户在index2.html页面点击返回的时候, 将返回到index3.html, 而不是之前的index1.html页面.</p>
-<p>有同学会问，到了index3.html的时候再点击返回，不是又回到了index1.html吗？这种情况怎么解决呢？</p>
-<p>针对这种情况，我们在index2.html页面调用backURL方法的时候，传入的是index3.html?backURL=encodeURIComponent(homepage.html?cantGoBack=true)，这样在index3.html中js初始化的时候，发现有传backURL的参数，就再次调用backURL(‘homepage.html?cantGoBack=true’)。到了首页发现有传cantGoBack=true, 就调用backURL传入我们的一个中转页，每次到中转页就自动又跳到当前页面 backURL(‘urlProxy.html?jumpUri=homepage.html’)。这样就首页点击返回就一直都是首页了。<a href="http://demo.dapenggaofei.com/wechat-return-button-control/example01/index1.html" target="_blank" rel="external">查看示例demo</a></p>
-<h3 id="三、存在的问题">三、存在的问题</h3><p>其实这种方法还存在着一个问题还没有解决。就是我们这一套都是基于JS实现的，如果用户点击过快，还是可以绕过我们设置的障碍，跳到我们不希望用户查看到的页面去了。这个还没有想到比较好的解决方案….</p>
+</li>
+</ol>
+<blockquote>
+<p>这一下就NB了,你可以直接用QQ等工具截图或者直接ctrl+c复制本地的一张图片,然后在这块区域中ctrl+v, 就可以直接上传七牛. 存图更加方便了.</p>
+</blockquote>
+<p>如果是本地上传文件到七牛，推荐这个chrome扩展，<a href="https://chrome.google.com/webstore/detail/qiniu-upload-files/emmfkgdgapbjphdolealbojmcmnphdcc" target="_blank" rel="external">【点击前往】</a>。</p>
 </span>
       
     </div>
@@ -249,9 +245,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/微信内嵌页/" rel="tag">#微信内嵌页</a>
+            <a href="/tags/Chrome扩展/" rel="tag">#Chrome扩展</a>
           
-            <a href="/tags/返回键控制/" rel="tag">#返回键控制</a>
+            <a href="/tags/七牛/" rel="tag">#七牛</a>
           
         </div>
       
@@ -260,13 +256,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/03/cross-domain-pitfall/" rel="prev">跨域调用之iOS safari坑</a>
+              <a href="/2016/06/11/nginx-lua-gray-md/" rel="prev">NGINX+LUA实现简单的灰度发布</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/03/clear-all-cookies/" rel="next">杜绝cookie污染，一键清空域下所有cookie</a>
+              <a href="/2016/03/12/adaptive-sprite/" rel="next">自适应雪碧图</a>
             
           </div>
         </div>
@@ -291,8 +287,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2017/02/10/wechat-return-button-control/"
-                   data-title="微信内嵌页返回键控制" data-url="http://git-patrickliu.github.io/2017/02/10/wechat-return-button-control/">
+              <div class="ds-thread" data-thread-key="2016/03/17/qiniu-add-to-favourite/"
+                   data-title="将世界美景收纳怀中" data-url="http://git-patrickliu.github.io/2016/03/17/qiniu-add-to-favourite/">
               </div>
             
           </div>
@@ -387,7 +383,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、api介绍"><span class="nav-number">1.</span> <span class="nav-text">一、api介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、解决方法"><span class="nav-number">2.</span> <span class="nav-text">二、解决方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、存在的问题"><span class="nav-number">3.</span> <span class="nav-text">三、存在的问题</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
