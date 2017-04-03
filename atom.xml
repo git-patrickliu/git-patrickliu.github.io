@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Hi, I'm 0827]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://git-patrickliu.github.io/"/>
-  <updated>2017-04-03T07:50:45.000Z</updated>
+  <updated>2017-04-03T13:40:11.000Z</updated>
   <id>http://git-patrickliu.github.io/</id>
   
   <author>
@@ -15,24 +15,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[met-with-threejs]]></title>
-    <link href="http://git-patrickliu.github.io/2017/04/03/met-with-threejs/"/>
-    <id>http://git-patrickliu.github.io/2017/04/03/met-with-threejs/</id>
-    <published>2017-04-03T07:50:45.000Z</published>
-    <updated>2017-04-03T07:50:45.000Z</updated>
-    <content type="html"></content>
-    <summary type="html">
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[纯前端生成邮件签名图片]]></title>
     <link href="http://git-patrickliu.github.io/2017/03/31/generate-mail-signature-with-pure-fe/"/>
     <id>http://git-patrickliu.github.io/2017/03/31/generate-mail-signature-with-pure-fe/</id>
     <published>2017-03-31T07:35:52.000Z</published>
-    <updated>2017-04-03T13:36:01.000Z</updated>
+    <updated>2017-04-03T13:40:11.000Z</updated>
     <content type="html"><![CDATA[<p>前些天，UED的同学制作了公司统一的邮件签名，并手动帮UED的同学全部给制作了一个精美的签名。非常耗时，要给全公司推广就很麻烦了。所以就建议我们能做一个自动生成的页面。</p>
 <p>本着能用JS就绝不用其他语言，能前端就不麻烦后端的思想，我小小预研了一下前端相关的技术。</p>
 <ol>
@@ -278,11 +265,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[float-calculation]]></title>
+    <title><![CDATA[浮点数计算]]></title>
     <link href="http://git-patrickliu.github.io/2015/12/13/float-calculation/"/>
     <id>http://git-patrickliu.github.io/2015/12/13/float-calculation/</id>
     <published>2015-12-13T10:37:29.000Z</published>
-    <updated>2017-04-03T01:09:18.000Z</updated>
+    <updated>2017-04-03T13:46:24.000Z</updated>
     <content type="html"><![CDATA[<p><a href="http://ppt.dapenggaofei.com/md/float.md" target="_blank" rel="external">查看ppt</a></p>
 <p>话说某天一个同事问我，为啥在JS里面 <strong>0.2+0.4</strong>，结果不是<strong>0.6</strong>。我想这个问题随便问一个人，都可以得出结果就是<strong>0.6</strong>， 而JS计算之后的结果是：</p>
 <p><img src="http://onlineimages.dapenggaofei.com/ff2efb5a2f58b399125a02c805e3b560.png" alt="0.2+0.4 result"></p>

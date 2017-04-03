@@ -2,8 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://git-patrickliu.github.io/2015/12/13/float-calculation/</loc>
+    <lastmod>2017-04-03T13:46:24.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://git-patrickliu.github.io/2017/03/31/generate-mail-signature-with-pure-fe/</loc>
-    <lastmod>2017-04-03T13:36:01.000Z</lastmod>
+    <lastmod>2017-04-03T13:40:11.000Z</lastmod>
   </url>
   
   <url>
@@ -14,11 +19,6 @@
   <url>
     <loc>http://git-patrickliu.github.io/2017/03/17/qiniu-add-to-favourite/</loc>
     <lastmod>2017-04-03T08:23:16.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://git-patrickliu.github.io/2017/04/03/met-with-threejs/</loc>
-    <lastmod>2017-04-03T07:50:45.000Z</lastmod>
   </url>
   
   <url>
@@ -39,11 +39,6 @@
   <url>
     <loc>http://git-patrickliu.github.io/2016/06/11/nginx-lua-gray-md/</loc>
     <lastmod>2017-04-03T01:09:30.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://git-patrickliu.github.io/2015/12/13/float-calculation/</loc>
-    <lastmod>2017-04-03T01:09:18.000Z</lastmod>
   </url>
   
   <url>
