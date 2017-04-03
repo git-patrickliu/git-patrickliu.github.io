@@ -71,7 +71,7 @@
     <link href="http://git-patrickliu.github.io/2017/03/17/qiniu-add-to-favourite/"/>
     <id>http://git-patrickliu.github.io/2017/03/17/qiniu-add-to-favourite/</id>
     <published>2017-03-17T05:24:40.000Z</published>
-    <updated>2017-04-03T08:13:59.000Z</updated>
+    <updated>2017-04-03T08:23:16.000Z</updated>
     <content type="html"><![CDATA[<p>嗯。本文的主题是”将世界美景收纳怀中“， 那如何将世界美景收纳怀中呢？在浏览网站看到好的图片的时候，你是右键下载到本地，最后文件塞满了你的本地硬盘然后最终只好全部删除而收场？此时你需要一个网页自动存储图片工具。</p>
 <p>当当当当，”七牛在线存图“工具闪耀登场。这个一个chrome扩展，意思就是只能在chrome浏览器当中使用，<a href="https://chrome.google.com/webstore/detail/%E4%B8%83%E7%89%9B%E5%9C%A8%E7%BA%BF%E5%AD%98%E5%9B%BE/ojgilmgaopbpimndoelnhacamaabdpni" target="_blank" rel="external">【点我下载】</a>。</p>
 <p>七牛在线存图到底有什么功能呢？看看以下操作示意图就知晓了。</p>
@@ -91,7 +91,7 @@
 </li>
 </ol>
 <blockquote>
-<p>这一下就NB了,你可以直接用QQ等工具截图或者直接ctrl+c复制本地的一张图片,然后在这块区域中ctrl+v, 就可以直接上传七牛. 存图更加方便了.</p>
+<p>这一下就NB了,你可以直接用QQ等工具截图或者直接ctrl+c复制本地的一张图片,然后在这块区域中ctrl+v, 就可以直接上传七牛. 存图更加方便了.<br>我在用markdown写这篇博客的时候, 想要贴图就太方便了,截图上传拷url粘贴, 搞定!</p>
 </blockquote>
 <p>如果是本地上传文件到七牛，推荐这个chrome扩展，<a href="https://chrome.google.com/webstore/detail/qiniu-upload-files/emmfkgdgapbjphdolealbojmcmnphdcc" target="_blank" rel="external">【点击前往】</a>。</p>
 ]]></content>
