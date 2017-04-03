@@ -283,7 +283,7 @@
         
           <span itemprop="articleBody">
             
-            微信内嵌页的返回键控制最近我们组一直在做微信公众号相关的产品。在开发过程中，大家对于微信的返回键有着愈来愈多的不满，进而想从技术层面对它进行控制（比如，注册成功页，点击返回不是回到注册页面，而是希望进入用户个人中心页）。
+            最近我们组一直在做微信公众号相关的产品。在开发过程中，大家对于微信的返回键有着愈来愈多的不满，进而想从技术层面对它进行控制（比如，注册成功页，点击返回不是回到注册页面，而是希望进入用户个人中心页）。
 当然直接像原生App一样控制这个返回键是不可能的，因为微信没有开放返回键的JS SDK接口。和同事讨论了一下，决定从H5的history API作为切入点来进行控制。
 一、api介绍我们知道H5的history API新增了以下三个方法:
 
@@ -293,7 +293,7 @@ onpopState
 
 下面我们分别对这三个方法进行说明。
 
-pushState. 12v
+pushState. 12var stateObj
             ...
           </span>
           <div class="post-more-link text-center">
@@ -331,7 +331,7 @@ pushState. 12v
           
             
               <a class="post-title-link" href="/2017/02/03/clear-all-cookies/" itemprop="url">
-                clear-all-cookies
+                杜绝cookie污染，一键清空域下所有cookie
               </a>
             
           
@@ -370,8 +370,10 @@ pushState. 12v
         
           <span itemprop="articleBody">
             
-            
-            
+            cookie对前端的重要性不言而喻，而cookie的错乱会影响用户的功能，甚至可能在cookie失效之前一直用不上我们的页面。在PC时代我们还可能去引导用户在浏览器中主动清除一下缓存和cookie, 但是在手机时代，很多时候我们都不清楚去哪里清除缓存和cookie了。所以做一个通用的清空域下的工具就势在必行了。
+原因都是最近一直在做微信公众号相关的项目，而在iOS下的微信内嵌页的调试真是灾难级别的。最近就碰到了一件事情，就是测试同学打开微信公众号里我们的内嵌页一直重复授权。原因就是后台设置了正常的登录态，但是微信内嵌页传到服务器的登录态都是空的。导致一直重复授权失败。
+这个原因很简单，就是后台
+            ...
           </span>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/02/03/clear-all-cookies/#more" rel="contents">
@@ -1022,7 +1024,7 @@ pip是安装python的一个命令。如何安装pip，大家可以百度一
 
           <div class="site-state-item site-state-tags">
             <a href="/tags/">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
