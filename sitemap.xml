@@ -2,8 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://git-patrickliu.github.io/2017/04/03/generate-mail-signature-with-pure-fe/</loc>
-    <lastmod>2017-04-03T12:54:46.000Z</lastmod>
+    <loc>http://git-patrickliu.github.io/2017/03/31/generate-mail-signature-with-pure-fe/</loc>
+    <lastmod>2017-04-03T12:59:18.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://git-patrickliu.github.io/2017/03/15/cross-domain-pitfall/</loc>
+    <lastmod>2017-04-03T12:59:05.000Z</lastmod>
   </url>
   
   <url>
@@ -14,11 +19,6 @@
   <url>
     <loc>http://git-patrickliu.github.io/2017/04/03/met-with-threejs/</loc>
     <lastmod>2017-04-03T07:50:45.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://git-patrickliu.github.io/2017/04/03/cross-domain-pitfall/</loc>
-    <lastmod>2017-04-03T07:23:18.000Z</lastmod>
   </url>
   
   <url>
