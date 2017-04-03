@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="cordova,hybrid app," />
+  <meta name="keywords" content="velocity," />
 
 
 
@@ -39,16 +39,47 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
 
 
-<meta name="description">
+<meta name="description" content="关键词：https优化，前端加载优化，hybrid，APM(application performance monitor）。
+
+https优化。
+
+
+HttpDNS, 通过http方式向第三方的固定IP方式来获取指定域名的IP来进行DNS解析（我们可以考虑在客户端新增HttpDNS）
+启用[HSTS][^HSTS] （我们尚未全站启用https，所以这个不太好启动）
+启用OCSP Staplin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cordova学习小记（一）">
-<meta property="og:url" content="http://git-patrickliu.github.io/2015/09/17/cordova-first/index.html">
+<meta property="og:title" content="velocity-2015">
+<meta property="og:url" content="http://git-patrickliu.github.io/2015/08/19/velocity-2015/index.html">
 <meta property="og:site_name" content="patrickliu's blog">
-<meta property="og:description">
-<meta property="og:updated_time" content="2015-09-28T11:44:24.000Z">
+<meta property="og:description" content="关键词：https优化，前端加载优化，hybrid，APM(application performance monitor）。
+
+https优化。
+
+
+HttpDNS, 通过http方式向第三方的固定IP方式来获取指定域名的IP来进行DNS解析（我们可以考虑在客户端新增HttpDNS）
+启用[HSTS][^HSTS] （我们尚未全站启用https，所以这个不太好启动）
+启用OCSP Staplin">
+<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0612.JPG">
+<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0571.JPG">
+<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0560.JPG">
+<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0585.JPG">
+<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0616.JPG">
+<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0593.JPG">
+<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0594.JPG">
+<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0595.JPG">
+<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0596.JPG">
+<meta property="og:image" content="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0597.JPG">
+<meta property="og:updated_time" content="2017-04-03T02:11:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cordova学习小记（一）">
-<meta name="twitter:description">
+<meta name="twitter:title" content="velocity-2015">
+<meta name="twitter:description" content="关键词：https优化，前端加载优化，hybrid，APM(application performance monitor）。
+
+https优化。
+
+
+HttpDNS, 通过http方式向第三方的固定IP方式来获取指定域名的IP来进行DNS解析（我们可以考虑在客户端新增HttpDNS）
+启用[HSTS][^HSTS] （我们尚未全站启用https，所以这个不太好启动）
+启用OCSP Staplin">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -58,7 +89,7 @@
   };
 </script>
 
-  <title> cordova学习小记（一） | patrickliu's blog </title>
+  <title> velocity-2015 | patrickliu's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -165,7 +196,7 @@
           
           
             
-              cordova学习小记（一）
+              velocity-2015
             
           
         </h1>
@@ -174,8 +205,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-09-17T13:18:20+08:00" content="2015-09-17">
-            2015-09-17
+          <time itemprop="dateCreated" datetime="2015-08-19T19:52:16+08:00" content="2015-08-19">
+            2015-08-19
           </time>
         </span>
 
@@ -185,8 +216,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/17/cordova-first/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/17/cordova-first/" itemprop="commentsCount"></span>
+              <a href="/2015/08/19/velocity-2015/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/19/velocity-2015/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -200,7 +231,97 @@
       
 
       
-        <span itemprop="articleBody"></span>
+        <span itemprop="articleBody"><p>关键词：https优化，前端加载优化，hybrid，APM(application performance monitor）。</p>
+<ol>
+<li><p>https优化。</p>
+<blockquote>
+<ul>
+<li>HttpDNS, 通过http方式向第三方的固定IP方式来获取指定域名的IP来进行<a href="这种方式可以解释我们之前域名被加黑名单的问题，但是如果又新增加域名，得客户端随时修改，建议通过下发方式来实现新域名prefetch。">DNS解析</a>（我们可以考虑在客户端新增HttpDNS）</li>
+<li>启用[HSTS][^HSTS] （我们尚未全站启用https，所以这个不太好启动）</li>
+<li>启用<a href="浏览器在下载服务端的证书之后会向证书发行商验证证书的合法性。因为是向国外网站验证，所以速度慢并存在着失败的可能性。所以可用的做法是在服务器端预先向服务器进行验证，然后打包证书供浏览器下载，这样浏览器就不用再去验证证书的合法性。注意，有效期大概为1个月。详见[网址](https://blog.xjpvictor.info/2013/09/nginx-ocsp-stapling/)。">OCSP Stapling</a>（可以采用，但需要查看兼容性以及要及时更新签名，以及注意证书链大小）</li>
+<li>复用session，减少握手次数</li>
+<li>精确设置TLS Record Size，size过小，overhead比重增大，size过大，单record的TCP分段过多</li>
+<li>TLS硬件加速</li>
+<li>SPDY/HTTP2.0，可以研究，但近期可能用不上。</li>
+<li>配置Forward secrecy cipher 支持[False start][^falsestart]  （可以采用，省掉一个RTT时间）</li>
+<li>升级openssl版本到最新（我们的版本是openssl-1.0.2c）</li>
+<li>确认TLS压缩禁用（nginx 1.3.x以上版本都自动关闭，不关闭有漏洞，我们nginx是1.6.3）</li>
+<li>确认SNI支持 （已支持，多个证书部署在同一个IP上）</li>
+<li>使用 <strong>//</strong>，来引用静态资源文件，保证http能无缝迁到https环境（我们已经使用了，但是一个360的同僚说在某些地方的移动运营商会将<strong>//</strong> 篡改为 <strong>/</strong>。但是iPhone5s 上海中国移动未发现问题）。<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0612.JPG" alt="TLS总结"></li>
+</ul>
+</blockquote>
+</li>
+<li><p>页面直出方法，对比？</p>
+<blockquote>
+<ul>
+<li>nginx + lua 页面直出（京东618采用）<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0571.JPG" alt="nginx + lua"></li>
+<li>ATS （apache traffic server）页面直出（Yahoo采用）</li>
+<li>nodejs直出</li>
+</ul>
+</blockquote>
+</li>
+<li><p>前端加载优化</p>
+<blockquote>
+<ul>
+<li>ebay优化尝试：DSA（dynamic site accelerate）动态加速，加快页面加载，采用WebP格式优化图片大小（理论能优化到以前60%大小）。</li>
+<li>composition layer，z-index相同导致的渲染变慢（阿里分享），可查看 <a href="http://www.w3ctech.com/topic/1463" target="_blank" rel="external">css conf</a> 360的分享有讨论此问题。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>hybrid</p>
+<blockquote>
+<ul>
+<li>百度 Blend UI系统架构。通过封装统一JS UI API，如果是在百度app内部的webview，则调用的是原生的UI样式，否则调用的是JS统一的<a href="百度blendUI详细如下：">UI样式</a></li>
+<li>Yahoo 采用reactjs + <a href="https://facebook.github.io/flux/" target="_blank" rel="external">flux</a></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ol>
+<li>APM<blockquote>
+<ul>
+<li>今年的趋势是APM（application performance monitor），赞助商基本都是APM厂商（云智慧，性能魔方，性能极客，OneAPM，野狗等）。</li>
+<li>我们正在试用<a href="https://tpm.oneapm.com/tpm/account/717715137/browser/1326753/overview/#/" target="_blank" rel="external">OneAPM</a>进行页面加载测试。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h4 id="总结：">总结：</h4><h5 id="一些方法论：">一些方法论：</h5><blockquote>
+<ul>
+<li>保持simplicity<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0560.JPG" alt="保持简单"></li>
+<li>build high performance team<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0585.JPG" alt="high performance team"></li>
+<li>优化问题方法论<br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0616.JPG" alt="优化步骤"></li>
+</ul>
+</blockquote>
+<h5 id="我们暂时能够跟进的：">我们暂时能够跟进的：</h5><blockquote>
+<ul>
+<li>客户端采用http协议的httpDNS来加速DNS查询，能有效防止之前DNS解析问题。</li>
+<li>https优化全部跟进，已将dev全部改成TLSv1.2，排期全部改造并上线。</li>
+<li>CDN动态加速（DSA）咨询，并开启。</li>
+<li>hybrid现阶段讨论结果是采用PhoneGap。</li>
+<li>试用OneAPM跟进数据，然后基于数据进行优化。</li>
+</ul>
+</blockquote>
+<h5 id="一些有用的网站分享：">一些有用的网站分享：</h5><ol>
+<li><p>关于html标准的网站。</p>
+<blockquote>
+<ul>
+<li><a href="http://specifiction.wicg.io" target="_blank" rel="external">specifiction</a>|<a href="http://discourse.wicg.io" target="_blank" rel="external">Discourse</a> ask question</li>
+<li>Contribute tests on <a href="http://testthewebforward.org" target="_blank" rel="external">testthewebforward</a></li>
+<li><a href="http://www.w3.org/community/wicg" target="_blank" rel="external">W3 Community</a></li>
+<li><a href="http://extensiblewebmanifesto.org" target="_blank" rel="external">extensiblewebmanifesto</a></li>
+<li><a href="http://webcomponents.org" target="_blank" rel="external">webcomponents</a></li>
+</ul>
+</blockquote>
+</li>
+<li><p><a href="https://ssllabs.com/" target="_blank" rel="external">SSLLabs</a> 查看你的网站https安不安全</p>
+</li>
+<li><a href="http://op.baidu.com/2015/04/https-s01a01/" target="_blank" rel="external">百度https实践</a></li>
+</ol>
+<p>[^HSTS]: HTTP Strict Transport Security。我们现在请求http的站点时，会自动跳转到https的页面，其实这一步是存在安全风险的，但是通过HSTS，设置响应头Strict-Transport-Security: max-age=31536000; includeSubDomains，可保证用户即使输入http页面，也在浏览器级别会自动请求https页面，不需要经过服务器跳转。</p>
+<p>[^falsestart]: 查看<a href="http://chimera.labs.oreilly.com/books/1230000000545/ch04.html" target="_blank" rel="external">网址</a>，啥是false start（抢跑）。</p>
+<p><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0593.JPG" alt="blend UI 1"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0594.JPG" alt="blend UI 2"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0595.JPG" alt="blend UI 3"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0596.JPG" alt="blend UI 4"><br><img src="http://7xkybo.com1.z0.glb.clouddn.com/IMG_0597.JPG" alt="blend UI 5"></p>
+</span>
       
     </div>
 
@@ -208,9 +329,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/cordova/" rel="tag">#cordova</a>
-          
-            <a href="/tags/hybrid-app/" rel="tag">#hybrid app</a>
+            <a href="/tags/velocity/" rel="tag">#velocity</a>
           
         </div>
       
@@ -219,13 +338,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/17/qiniu-add-to-favourite/" rel="prev">将世界美景收纳怀中</a>
+              <a href="/2015/09/04/duoshuo/" rel="prev">接入多说评论</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
-            
-              <a href="/2015/09/04/access-in-oneapm/" rel="next">OneAPM，just the one.</a>
             
           </div>
         </div>
@@ -250,8 +367,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/09/17/cordova-first/"
-                   data-title="cordova学习小记（一）" data-url="http://git-patrickliu.github.io/2015/09/17/cordova-first/">
+              <div class="ds-thread" data-thread-key="2015/08/19/velocity-2015/"
+                   data-title="velocity-2015" data-url="http://git-patrickliu.github.io/2015/08/19/velocity-2015/">
               </div>
             
           </div>
@@ -291,7 +408,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives/">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -305,7 +422,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags/">
-              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -346,7 +463,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#总结："><span class="nav-number">1.</span> <span class="nav-text">总结：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#一些方法论："><span class="nav-number">1.1.</span> <span class="nav-text">一些方法论：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#我们暂时能够跟进的："><span class="nav-number">1.2.</span> <span class="nav-text">我们暂时能够跟进的：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#一些有用的网站分享："><span class="nav-number">1.3.</span> <span class="nav-text">一些有用的网站分享：</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

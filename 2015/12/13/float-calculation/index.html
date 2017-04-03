@@ -39,33 +39,36 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
 
 
-<meta name="description" content="话说某天一个同事问我，为啥在JS里面 0.2+0.4，结果不是0.6。我想这个问题随便问一个人，都可以得出结果就是0.6， 而JS计算之后的结果是：
+<meta name="description" content="查看ppt
+话说某天一个同事问我，为啥在JS里面 0.2+0.4，结果不是0.6。我想这个问题随便问一个人，都可以得出结果就是0.6， 而JS计算之后的结果是：
 
 下面我们来回忆一下学习过的计算机组成原理相关的知识。一步一步来揭示这个问题的真相。
 浮点数的表示先介绍一下在计算机中表示数字的三种表示方法：原码，反码和补码
 1. 原码原码是计算机中对数字的二进制的定点表示方法。
-优点是简单直观。最高位表示符号位。">
+优点是简单直观。最高位">
 <meta property="og:type" content="article">
 <meta property="og:title" content="float-calculation">
 <meta property="og:url" content="http://git-patrickliu.github.io/2015/12/13/float-calculation/index.html">
 <meta property="og:site_name" content="patrickliu's blog">
-<meta property="og:description" content="话说某天一个同事问我，为啥在JS里面 0.2+0.4，结果不是0.6。我想这个问题随便问一个人，都可以得出结果就是0.6， 而JS计算之后的结果是：
+<meta property="og:description" content="查看ppt
+话说某天一个同事问我，为啥在JS里面 0.2+0.4，结果不是0.6。我想这个问题随便问一个人，都可以得出结果就是0.6， 而JS计算之后的结果是：
 
 下面我们来回忆一下学习过的计算机组成原理相关的知识。一步一步来揭示这个问题的真相。
 浮点数的表示先介绍一下在计算机中表示数字的三种表示方法：原码，反码和补码
 1. 原码原码是计算机中对数字的二进制的定点表示方法。
-优点是简单直观。最高位表示符号位。">
+优点是简单直观。最高位">
 <meta property="og:image" content="http://onlineimages.dapenggaofei.com/ff2efb5a2f58b399125a02c805e3b560.png">
 <meta property="og:image" content="http://7xlxn1.com1.z0.glb.clouddn.com/74fce14dc02783bde16b5d38fa92babd.png">
-<meta property="og:updated_time" content="2017-04-02T13:18:49.000Z">
+<meta property="og:updated_time" content="2017-04-03T01:09:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="float-calculation">
-<meta name="twitter:description" content="话说某天一个同事问我，为啥在JS里面 0.2+0.4，结果不是0.6。我想这个问题随便问一个人，都可以得出结果就是0.6， 而JS计算之后的结果是：
+<meta name="twitter:description" content="查看ppt
+话说某天一个同事问我，为啥在JS里面 0.2+0.4，结果不是0.6。我想这个问题随便问一个人，都可以得出结果就是0.6， 而JS计算之后的结果是：
 
 下面我们来回忆一下学习过的计算机组成原理相关的知识。一步一步来揭示这个问题的真相。
 浮点数的表示先介绍一下在计算机中表示数字的三种表示方法：原码，反码和补码
 1. 原码原码是计算机中对数字的二进制的定点表示方法。
-优点是简单直观。最高位表示符号位。">
+优点是简单直观。最高位">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -217,7 +220,8 @@
       
 
       
-        <span itemprop="articleBody"><p>话说某天一个同事问我，为啥在JS里面 <strong>0.2+0.4</strong>，结果不是<strong>0.6</strong>。我想这个问题随便问一个人，都可以得出结果就是<strong>0.6</strong>， 而JS计算之后的结果是：</p>
+        <span itemprop="articleBody"><p><a href="http://ppt.dapenggaofei.com/md/float.md" target="_blank" rel="external">查看ppt</a></p>
+<p>话说某天一个同事问我，为啥在JS里面 <strong>0.2+0.4</strong>，结果不是<strong>0.6</strong>。我想这个问题随便问一个人，都可以得出结果就是<strong>0.6</strong>， 而JS计算之后的结果是：</p>
 <p><img src="http://onlineimages.dapenggaofei.com/ff2efb5a2f58b399125a02c805e3b560.png" alt="0.2+0.4 result"></p>
 <p>下面我们来回忆一下学习过的计算机组成原理相关的知识。一步一步来揭示这个问题的真相。</p>
 <h3 id="浮点数的表示">浮点数的表示</h3><p>先介绍一下在计算机中表示数字的三种表示方法：<a href="http://baike.baidu.com/view/60480.htm" target="_blank" rel="external">原码</a>，<a href="http://baike.baidu.com/view/742694.htm" target="_blank" rel="external">反码</a>和<a href="http://baike.baidu.com/link?url=OeFyHF5lRc_3X8oaLrMYQZIJwtgbSlbq4u5fgXwWvYmUl8DY6LARZ0NvnxJakDjN8HFqtjoHXz0pSWVvkE_OPa" target="_blank" rel="external">补码</a></p>
@@ -296,7 +300,6 @@
 </ol>
 <p>五. 判断结果<br>与定点数运算不同的是，浮点数的溢出是以其运算结果的阶码的值是否产生溢出来判断的。若阶码的值超过了阶码所能表示的最大正数，则为上溢，进一步，若此时浮点数为正数，则为正上溢，记为+∞，若浮点数为负数，则为负上溢，记为-∞；若阶码的值超过了阶码所能表示的最小负数，则为下溢，进一步，若此时浮点数为正数，则为正下溢，若浮点数为负数，则为负下溢。正下溢和负下溢都作为0处理。</p>
 <h4 id="尝试解释一下下面的结果，然后在console当中试试">尝试解释一下下面的结果，然后在console当中试试</h4><p><code>0.7+0.2</code> = <code>?</code></p>
-<p><a href="http://ppt.dapenggaofei.com/md/float.md" target="_blank" rel="external">查看ppt</a></p>
 </span>
       
     </div>
@@ -388,7 +391,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives/">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -402,7 +405,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags/">
-              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
