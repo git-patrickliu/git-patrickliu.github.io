@@ -39,36 +39,21 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
 
 
-<meta name="description" content="查看ppt
-话说某天一个同事问我，为啥在JS里面 0.2+0.4，结果不是0.6。我想这个问题随便问一个人，都可以得出结果就是0.6， 而JS计算之后的结果是：
-
-下面我们来回忆一下学习过的计算机组成原理相关的知识。一步一步来揭示这个问题的真相。
-浮点数的表示先介绍一下在计算机中表示数字的三种表示方法：原码，反码和补码
-1. 原码原码是计算机中对数字的二进制的定点表示方法。
-优点是简单直观。最高位">
+<meta name="description" content="查看ppt 话说某天一个同事问我，为啥在JS里面 0.2+0.4，结果不是0.6。我想这个问题随便问一个人，都可以得出结果就是0.6， 而JS计算之后的结果是：  下面我们来回忆一下学习过的计算机组成原理相关的知识。一步一步来揭示这个问题的真相。 浮点数的表示先介绍一下在计算机中表示数字的三种表示方法：原码，反码和补码 1. 原码原码是计算机中对数字的二进制的定点表示方法。 优点是简单直观。最高位">
+<meta name="keywords" content="js float,js 浮点数计算">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浮点数计算">
 <meta property="og:url" content="http://git-patrickliu.github.io/2015/12/13/float-calculation/index.html">
-<meta property="og:site_name" content="patrickliu's blog">
-<meta property="og:description" content="查看ppt
-话说某天一个同事问我，为啥在JS里面 0.2+0.4，结果不是0.6。我想这个问题随便问一个人，都可以得出结果就是0.6， 而JS计算之后的结果是：
-
-下面我们来回忆一下学习过的计算机组成原理相关的知识。一步一步来揭示这个问题的真相。
-浮点数的表示先介绍一下在计算机中表示数字的三种表示方法：原码，反码和补码
-1. 原码原码是计算机中对数字的二进制的定点表示方法。
-优点是简单直观。最高位">
+<meta property="og:site_name" content="patrickliu&#39;s blog">
+<meta property="og:description" content="查看ppt 话说某天一个同事问我，为啥在JS里面 0.2+0.4，结果不是0.6。我想这个问题随便问一个人，都可以得出结果就是0.6， 而JS计算之后的结果是：  下面我们来回忆一下学习过的计算机组成原理相关的知识。一步一步来揭示这个问题的真相。 浮点数的表示先介绍一下在计算机中表示数字的三种表示方法：原码，反码和补码 1. 原码原码是计算机中对数字的二进制的定点表示方法。 优点是简单直观。最高位">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://dn-dapenggaofei.qbox.me/ff2efb5a2f58b399125a02c805e3b560.png">
 <meta property="og:image" content="http://7xlxn1.com1.z0.glb.clouddn.com/74fce14dc02783bde16b5d38fa92babd.png">
 <meta property="og:updated_time" content="2017-04-03T22:57:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浮点数计算">
-<meta name="twitter:description" content="查看ppt
-话说某天一个同事问我，为啥在JS里面 0.2+0.4，结果不是0.6。我想这个问题随便问一个人，都可以得出结果就是0.6， 而JS计算之后的结果是：
-
-下面我们来回忆一下学习过的计算机组成原理相关的知识。一步一步来揭示这个问题的真相。
-浮点数的表示先介绍一下在计算机中表示数字的三种表示方法：原码，反码和补码
-1. 原码原码是计算机中对数字的二进制的定点表示方法。
-优点是简单直观。最高位">
+<meta name="twitter:description" content="查看ppt 话说某天一个同事问我，为啥在JS里面 0.2+0.4，结果不是0.6。我想这个问题随便问一个人，都可以得出结果就是0.6， 而JS计算之后的结果是：  下面我们来回忆一下学习过的计算机组成原理相关的知识。一步一步来揭示这个问题的真相。 浮点数的表示先介绍一下在计算机中表示数字的三种表示方法：原码，反码和补码 1. 原码原码是计算机中对数字的二进制的定点表示方法。 优点是简单直观。最高位">
+<meta name="twitter:image" content="https://dn-dapenggaofei.qbox.me/ff2efb5a2f58b399125a02c805e3b560.png">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -223,11 +208,11 @@ var _hmt = _hmt || [];
       
 
       
-        <span itemprop="articleBody"><p><a href="http://ppt.dapenggaofei.com/md/float.md" target="_blank" rel="external">查看ppt</a></p>
+        <span itemprop="articleBody"><p><a href="http://ppt.dapenggaofei.com/md/float.md" target="_blank" rel="noopener">查看ppt</a></p>
 <p>话说某天一个同事问我，为啥在JS里面 <strong>0.2+0.4</strong>，结果不是<strong>0.6</strong>。我想这个问题随便问一个人，都可以得出结果就是<strong>0.6</strong>， 而JS计算之后的结果是：</p>
 <p><img src="https://dn-dapenggaofei.qbox.me/ff2efb5a2f58b399125a02c805e3b560.png" alt="0.2+0.4 result"></p>
 <p>下面我们来回忆一下学习过的计算机组成原理相关的知识。一步一步来揭示这个问题的真相。</p>
-<h3 id="浮点数的表示">浮点数的表示</h3><p>先介绍一下在计算机中表示数字的三种表示方法：<a href="http://baike.baidu.com/view/60480.htm" target="_blank" rel="external">原码</a>，<a href="http://baike.baidu.com/view/742694.htm" target="_blank" rel="external">反码</a>和<a href="http://baike.baidu.com/link?url=OeFyHF5lRc_3X8oaLrMYQZIJwtgbSlbq4u5fgXwWvYmUl8DY6LARZ0NvnxJakDjN8HFqtjoHXz0pSWVvkE_OPa" target="_blank" rel="external">补码</a></p>
+<h3 id="浮点数的表示">浮点数的表示</h3><p>先介绍一下在计算机中表示数字的三种表示方法：<a href="http://baike.baidu.com/view/60480.htm" target="_blank" rel="noopener">原码</a>，<a href="http://baike.baidu.com/view/742694.htm" target="_blank" rel="noopener">反码</a>和<a href="http://baike.baidu.com/link?url=OeFyHF5lRc_3X8oaLrMYQZIJwtgbSlbq4u5fgXwWvYmUl8DY6LARZ0NvnxJakDjN8HFqtjoHXz0pSWVvkE_OPa" target="_blank" rel="noopener">补码</a></p>
 <h4 id="1-_原码">1. 原码</h4><p>原码是计算机中对数字的二进制的定点表示方法。</p>
 <p>优点是简单直观。最高位表示符号位。例如我们用8位二进制来表示一个数。</p>
 <blockquote>
@@ -462,7 +447,7 @@ var _hmt = _hmt || [];
       <div class="footer-inner"> <div class="copyright" >
   
   &copy; &nbsp; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="icon-next-heart"></i>
   </span>

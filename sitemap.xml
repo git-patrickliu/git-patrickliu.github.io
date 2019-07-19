@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://git-patrickliu.github.io/about/index.html</loc>
+    <lastmod>2018-01-04T05:24:15.131Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://git-patrickliu.github.io/2017/03/15/cross-domain-pitfall/</loc>
     <lastmod>2017-04-04T01:47:05.000Z</lastmod>
   </url>
@@ -12,12 +17,12 @@
   </url>
   
   <url>
-    <loc>http://git-patrickliu.github.io/2015/12/13/float-calculation/</loc>
+    <loc>http://git-patrickliu.github.io/2017/03/17/qiniu-add-to-favourite/</loc>
     <lastmod>2017-04-03T22:57:45.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://git-patrickliu.github.io/2017/03/17/qiniu-add-to-favourite/</loc>
+    <loc>http://git-patrickliu.github.io/2015/12/13/float-calculation/</loc>
     <lastmod>2017-04-03T22:57:45.000Z</lastmod>
   </url>
   
@@ -37,12 +42,12 @@
   </url>
   
   <url>
-    <loc>http://git-patrickliu.github.io/2015/09/27/qiniu-remote-upload-api/</loc>
+    <loc>http://git-patrickliu.github.io/2015/08/19/velocity-2015/</loc>
     <lastmod>2017-04-03T22:56:00.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://git-patrickliu.github.io/2015/08/19/velocity-2015/</loc>
+    <loc>http://git-patrickliu.github.io/2015/09/27/qiniu-remote-upload-api/</loc>
     <lastmod>2017-04-03T22:56:00.000Z</lastmod>
   </url>
   
@@ -69,11 +74,6 @@
   <url>
     <loc>http://git-patrickliu.github.io/2015/09/04/duoshuo/</loc>
     <lastmod>2015-09-04T16:39:17.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://git-patrickliu.github.io/about/index.html</loc>
-    <lastmod>2015-09-04T14:03:00.000Z</lastmod>
   </url>
   
   <url>
